@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        //pop, push, shift, unshift, reverse, sort, splice indexOf slice
+        // This observable array initially contains three objects  observable
+        var myObservableArray = ko.observableArray([
+    { name: "Bungle", type: "Bear" },
+    { name: "George", type: "Hippo" },
+    { name: "Zippy", type: "Unknown" }
+]);
+    $(function() {
+        alert('The length of the array is ' + myObservableArray().length);
+        alert('The first element is ' + myObservableArray()[0]);
+    });
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

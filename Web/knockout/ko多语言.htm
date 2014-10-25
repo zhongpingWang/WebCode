@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+    
+    <style type="text/css">
+        .admin_en{ color: red;}
+        .admin_jp{ color: black;}
+        .admin_zh{ color: yellow;}
+         .admin_en2{ font-size: 18px;}
+        .admin_jp2{ font-size: 22px;}
+        .admin_zh2{ font-size: 24px;}
+    </style>
+    
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            var code = "";
+
+            if (navigator.language) {
+                code = navigator.language;
+            } else {
+                code = navigator.browserLanguage;
+            }
+            var xmlURL = "lans/" + code + "/lang.js";
+
+            var ViewModel = {
+                langs: ko.observable(""),
+                optionValues: ["en", "ja-jp", "zh-cn"],
+                selectedOptionValue: ko.observable(code.toLowerCase())
+                //                ChangeLans: function () {
+                //                    xmlURL = "lans/" + this.selectedOptionValue() + "/lang.js";
+                //                    $.getScript(xmlURL, function () {
+                //                        ViewModel.langs(md_lang);
+                //                    });
+                //                }
+            }
+
+            ViewModel.selectedOptionValue.subscribe(function () {
+                xmlURL = "lans/" + ViewModel.selectedOptionValue() + "/lang.js";
+                $.getScript(xmlURL, function () {
+                    ViewModel.langs(md_lang);
+                });
+            });
+
+
+            ViewModel.staticAdmin = ko.computed(function () {
+                if (this.selectedOptionValue() == "zh-cn") {
+                    return "admin_zh admin_zh2";
+                } else if (this.selectedOptionValue() == "en") {
+                    return "admin_en";
+                } else {
+                    return "admin-jp";
+                }
+            }, ViewModel);
+
+
+            ViewModel.color2 = ko.computed(function() {
+
+                if (this.selectedOptionValue() == "zh-cn") {
+                    return "#333";
+                } else if (this.selectedOptionValue() == "en") {
+                    return "#f0f0f0";
+                } else {
+                    return "#ececec";
+                }
+
+
+            }, ViewModel);
+
+
+            ko.applyBindings(ViewModel);
+
+
+            $.getScript(xmlURL, function (data) {
+                ViewModel.langs(md_lang);
+            });
+
+        });
+
+       
+
+    </script>
+</head>
+<body>
+    <span data-bind="text:langs().menu_admin,css:staticAdmin">000</span>
+    <select data-bind="options: optionValues, value: selectedOptionValue">
+    </select>
+    <img data-bind="attr:{src:langs().src}" />
+    
+     
+     <span data-bind="style:{color:color2}">2345678</span>
+
+</body>
+</html>

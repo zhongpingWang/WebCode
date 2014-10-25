@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        var availableMeals = [
+                { mealName: 'Standard', description: 'Dry crusts of bread', extraCost: 0 },
+                { mealName: 'Premium', description: 'Fresh bread with cheese', extraCost: 9.95 },
+                { mealName: 'Deluxe', description: 'Caviar and vintage Dr Pepper', extraCost: 18.50 }
+        ];
+
+        function formatPrice(price) {
+            return price == 0 ? "Free" : "$" + price.toFixed(2);
+        }
+
+        $(function () {
+
+            var viewModel = {
+                chosenMeal: ko.observable(availableMeals[0])
+            };
+
+            ko.applyBindings(viewModel);
+
+
+        });          
+
+    </script>
+</head>
+<body>
+    Chosen meal:
+    <select data-bind="options: availableMeals,
+                                optionsText: 'mealName',
+                                value: chosenMeal">
+    </select>
+    <p>
+        You've chosen: <b data-bind="text: chosenMeal().description"></b>
+        (price: <span data-bind='text: formatPrice(chosenMeal().extraCost)'>
+        </span>) (price: <span data-bind='text: formatPrice(chosenMeal().extraCost)'></span>
+        )
+    </p>
+</body>
+</html>

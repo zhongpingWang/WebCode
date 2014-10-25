@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+    <style type="text/css">
+        .profitWarning{ color: red;}
+        
+    </style>
+    <script type="text/javascript">
+        var viewModel = {
+            currentProfit: ko.observable(150000),
+            url: ko.observable("year-end.html"),
+            details: ko.observable("Report including final year-end statistics")
+            // Positive value, so initially we don't apply the "profitWarning" class
+        };
+        //不合法的  加" "
+       // <div data-bind="css: { 'my-class': someValue }">...</div>
+
+        viewModel.currentProfit(-50);
+        // Causes the "profitWarning" class to be applied
+        $(function () {
+            ko.applyBindings(viewModel);
+        });
+
+    </script>
+</head>
+<body>
+<div data-bind="css: { profitWarning: currentProfit() < 0 }">
+   Profit Information
+</div>
+    <br/>
+    <div data-bind="style: { color: currentProfit() < 0 ? 'red' : 'black' }">
+        Profit Information
+    </div>
+    <a data-bind="attr: { href: url, title: details }">
+    Report
+</a>
+    <!-- <div data-bind="style: { color: currentProfit() < 0 ? 'red' : 'black', fontWeight: isSevere() ? 'bold' : '' }">...</div>
+        错误： { font-weight: someValue };            正确： { fontWeight: someValue }
+
+        错误： { text-decoration: someValue };      正确： { textDecoration: someValue }
+     
+     <div data-bind="attr: { ‘data-something’: someValue }">...</div>
+        -->
+    
+
+    <!--   <div data-bind="css: { profitWarning: currentProfit() < 0, majorHighlight: isSevere }">-->
+</body>
+</html>

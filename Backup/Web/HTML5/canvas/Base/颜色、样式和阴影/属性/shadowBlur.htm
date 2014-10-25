@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <pre>
+            浏览器支持
+            Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 shadowBlur 属性。
+            注释：Internet Explorer 8 以及更早的版本不支持 &lt;canvas> 元素。
+            定义和用法
+            shadowBlur 属性设置或返回阴影的模糊级数。
+            默认值：	#000000
+            JavaScript 语法：	context.shadowBlur=number;
+            属性值
+            值	描述
+            number	阴影的模糊级数
+
+</pre>
+
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script type="text/javascript">
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = "black";
+    ctx.fillStyle = "blue";
+    ctx.fillRect(20, 20, 100, 80); // ctx.strokeRect(20, 20, 100, 80);
+
+</script>
+</body>
+</html>

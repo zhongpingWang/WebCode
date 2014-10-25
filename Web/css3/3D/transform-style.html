@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style>
+#div1
+{
+position: relative;
+height: 200px;
+width: 200px;
+margin: 100px;
+padding:10px;
+border: 1px solid black;
+}
+
+#div2
+{
+padding:50px;
+position: absolute;
+border: 1px solid black;
+background-color: red;
+transform: rotateY(60deg);
+transform-style: preserve-3d;
+-webkit-transform: rotateY(60deg); /* Safari and Chrome */
+-webkit-transform-style: preserve-3d; /* Safari and Chrome */
+}
+
+#div3
+{
+padding:40px;
+position: absolute;
+border: 1px solid black;
+background-color: yellow;
+transform: rotateY(80deg);
+-webkit-transform: rotateY(-60deg); /* Safari and Chrome */
+
+}
+</style>
+</head>
+<body>
+    <pre>
+
+        transform-style 属性规定如何在 3D 空间中呈现被嵌套的元素。
+            注释：该属性必须与 transform 属性一同使用。
+            默认值：	flat
+            继承性：	no
+            版本：	CSS3
+            JavaScript 语法：	object.style.transformStyle="preserve-3d"
+            语法
+            transform-style: flat|preserve-3d;
+            值	描述
+            flat	子元素将不保留其 3D 位置。
+            preserve-3d	子元素将保留其 3D 位置。
+    </pre>
+
+    <div id="div1">
+  <div id="div2">HELLO
+  	<div id="div3">YELLOW</div>
+  </div>
+</div>
+</body>
+</html>

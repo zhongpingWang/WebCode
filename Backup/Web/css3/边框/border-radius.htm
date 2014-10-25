@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>border-radius</title>
+    <style type="text/css">
+        .index
+        {
+            width: 336px;
+            height: 160px;
+            background-color: #6699FF;
+            margin: 0 auto;
+            -moz-border-radius-topleft: 50px;
+            -moz-border-radius-topright: 10px;
+            -moz-border-radius-bottomright: 10px;
+            -moz-border-radius-bottomleft: 10px;
+            -webkit-border-top-right-radius: 10px;
+            -webkit-border-top-left-radius: 50px;
+            -webkit-border-bottom-right-radius: 10px;
+            -webkit-border-bottom-left-radius: 10px;
+        }
+        .index2
+        {
+            width: 336px;
+            height: 160px;
+            background-color: #6699FF;
+            margin: 0 auto;
+            -moz-border-radius-bottomright: 10px;
+            -moz-border-radius-bottomleft: 10px;
+            -webkit-border-bottom-right-radius: 10px;
+            -webkit-border-bottom-left-radius: 10px;
+        }
+        .index3
+        {
+            width: 336px;
+            height: 160px;
+            background-color: #6699FF;
+            margin: 0 auto;
+            border-radius: 50px 30px 20px 10px;
+            -moz-border-radius: 50px 30px 20px 10px;
+            -webkit-border-radius: 50px 30px 20px 10px;
+        }
+        .index4
+        {
+            width: 336px;
+            height: 160px;
+            margin: 0 auto;
+            border-radius: 15px;
+            -moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
+            border: 15px #6699FF solid;
+        }
+        .index5
+        {
+            width: 336px;
+            height: 160px;
+            background-color: #6699FF;
+            margin: 0 auto;
+            border-radius: 0 15px 0 0;
+            -moz-border-radius: 0 15px 0 0;
+            -webkit-border-radius: 0 15px 0 0;
+        }
+        .index7 {
+              width: 336px;
+            height: 160px;
+            background-color: #6699FF;
+            margin: 0 auto;
+            border-radius:10px 20px 30px 40px/5px 10px 15px 20px;
+            -moz-border-radius: 10px 20px 30px 40px/5px 10px 15px 20px;
+            -webkit-border-radius: 10px 20px 30px 40px/5px 10px 15px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 1000px; margin: 0 auto;">
+        语法：
+        <br />
+        border-radius：[ &lt;length> | &lt;percentage> ]{1,4} [ / [&lt;length> | &lt;percentage>
+        ]{1,4} ]?<br />
+        默认值：0<br />
+        <br />
+        取值：<br />
+        &lt;length>： 用长度值设置对象的圆角半径长度。不允许负值<br />
+        &lt;percentage> ： 用百分比设置对象的圆角半径长度。不允许负值
+        <br />
+        <br />
+        设置或检索对象使用圆角边框。提供2个参数，2个参数以“/”分隔，每个参数允许设置1~4个参数值，第1个参数表示水平半径，第2个参数表示垂直半径，如第2个参数省略，则默认等于第1个参数
+        水平半径：如果提供全部四个参数值，将按上左(top-left)、上右(top-right)、下右(bottom-right)、下左(bottom-left)的顺序作用于四个角。
+        如果只提供一个，将用于全部的于四个角。 如果提供两个，第一个用于上左(top-left)、下右(bottom-right)，第二个用于上右(top-right)、下左(bottom-left)。
+        如果提供三个，第一个用于上左(top-left)，第二个用于上右(top-right)、下左(bottom-left)，第三个用于下右(bottom-right)。
+        垂直半径也遵循以上4点。 对应的脚本特性为borderRadius。
+    </div>
+    <div class="index3">
+        <br />
+        -moz-border-radius: 50px 30px 20px 10px;<br />
+        <br />
+        -webkit-border-radius:50px 30px 20px 10px;
+    </div>
+    <br />
+    <div class="index">
+        <br />
+        -moz-border-radius-topleft: 50px;<br />
+        <br />
+        -moz-border-radius-topright: 10px;<br />
+        <br />
+        -moz-border-radius-bottomright: 10px;<br />
+        <br />
+        -moz-border-radius-bottomleft: 10px;
+    </div>
+    <br />
+    <div class="index2">
+        <br />
+        -moz-border-radius-bottomright: 10px;<br />
+        <br />
+        -moz-border-radius-bottomleft: 10px;
+    </div>
+    <br />
+    <div class="index5">
+        <br />
+        border-radius: 0 15px 0 0;<br />
+        <br />
+        -moz-border-radius:0 15px 0 0;<br />
+        <br />
+        -webkit-border-radius: 0 15px 0 0;
+    </div>
+    <br />
+    <div class="index4">
+        <br />
+        -moz-border-radius: 15px;<br />
+        <br />
+        -webkit-border-radius: 15px;<br />
+        <br />
+        border: 15px #6699FF solid;
+    </div>
+    <br/>
+    <div class="index7">
+       border-radius:10px 20px 30px 40px/5px 10px 15px 20px;
+    </div>
+
+</body>
+</html>

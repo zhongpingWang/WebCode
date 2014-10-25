@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+
+        var viewModel = {
+            firstName: ko.observable("Planet"),
+            lastName: ko.observable("Earth"),
+            price:ko.observable(12345.76543),
+            acceptedNumericValue: ko.observable(123),
+            lastInputWasValid: ko.observable(true)
+        };
+
+        viewModel.fullName = ko.dependentObservable({
+
+            read: function () {
+                return this.firstName() + " " + this.lastName();
+            },
+
+            write: function (value) {
+                var lastSpacePos = value.lastIndexOf(" ");
+                if (lastSpacePos > 0) { // Ignore values with no space character
+                    this.firstName(value.substring(0, lastSpacePos)); // Update "firstName"
+                    this.lastName(value.substring(lastSpacePos + 1)); // Update "lastName"
+                }
+            },
+            owner: viewModel
+        }); 
+
+        viewModel.formattedPrice = ko.dependentObservable({
+
+            read: function () {
+                return "$" + this.price().toFixed(2);
+            },
+
+            write: function (value) {
+                // Strip out unwanted characters, parse as float, then write the raw data back to the underlying "price" observable
+                value = parseFloat(value.replace(/[^\.\d]/g, ""));
+                this.price(isNaN(value) ? 0 : value); // Write to underlying storage
+            },
+            owner: viewModel
+        });
+        //dependentObservable
+        viewModel.attemptedValue = ko.dependentObservable({
+            read: viewModel.acceptedNumericValue,
+            write: function (value) {
+                if (isNaN(value))
+                    this.lastInputWasValid(false);
+                else {
+                    this.lastInputWasValid(true);
+                    this.acceptedNumericValue(value); // Write to underlying storage
+                }
+            },
+            owner: viewModel
+        });
+
+
+        $(function () {
+            //ko.applyBindings()
+             ko.applyBindings(viewModel);
+        });
+
+    </script>
+</head>
+    <body>
+        <p>Enter a numeric value: <input data-bind="value: attemptedValue"/></p>
+        <div data-bind="visible: !lastInputWasValid()">That's not a number!<span data-bind="text:attemptedValue"></span></div>
+        <br/><br/>
+        <p>Enter bid price: <input data-bind="value: formattedPrice"/></p>
+        <br/><br/>
+        <input data-bind="value: firstName"/> <input data-bind="value: lastName"/>
+        <p>First name: <span data-bind="text: firstName"></span></p>
+        <p>Last name: <span data-bind="text: lastName"></span></p>
+        <h2>Hello, <input data-bind="value: fullName"/>!</h2>
+    </body>
+</html>

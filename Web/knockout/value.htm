@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var viewModel = {
+            someValue: ko.observable("edit me"),
+            firstValue: ko.observable("hello"), // Observable
+            secondValue: "hello, again"// Not observable
+        };
+        $(function () {
+            ko.applyBindings(viewModel);
+        });
+
+    </script>
+</head>
+    <body>
+        
+        <!--  valueUpdate: 'afterkeydown'  加上是即时更新 不加是失去焦点  -->
+        <p>Your value: <input data-bind="value: someValue, valueUpdate: 'afterkeydown'"/></p>
+        <p>You have typed: <span data-bind="text: someValue">呵呵</span></p> <!-- updates in real-time --> 
+        <br/>
+        <p>First value: <input data-bind="value: firstValue, valueUpdate: 'afterkeydown'"/></p>          <!-- two-way binding -->
+<p>Second value: <input data-bind="value: secondValue"/></p>        <!-- one-way binding -->
+        <p>Third value: <input data-bind="value: secondValue.length"/></p>  <!-- no binding --> 
+            <p>First value: <input data-bind="value: firstValue().length"/></p>  <!-- no binding --> 
+    </body>
+</html>

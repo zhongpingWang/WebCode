@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+canvas
+{
+border:1px solid #d3d3d3;
+margin-right:10px;
+margin-bottom:20px;	
+}
+</style>
+</head>
+<body>
+    <pre>
+                    浏览器支持
+                    Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 globalCompositeOperation 属性。
+                    注释：Internet Explorer 8 以及更早的版本不支持 &lt;canvas> 元素。
+                    定义和用法
+                    globalCompositeOperation 属性设置或返回如何将一个源（新的）图像绘制到目标（已有）的图像上。
+                    源图像 = 您打算放置到画布上的绘图。
+                    目标图像 = 您已经放置在画布上的绘图。
+                    默认值：	source-over
+                    JavaScript 语法：	context.globalCompositeOperation="source-in";
+                    属性值
+                    值	描述
+                    source-over	默认。在目标图像上显示源图像。
+                    source-atop	在目标图像顶部显示源图像。源图像位于目标图像之外的部分是不可见的。
+                    source-in	在目标图像中显示源图像。只有目标图像内的源图像部分会显示，目标图像是透明的。
+                    source-out	在目标图像之外显示源图像。只会显示目标图像之外源图像部分，目标图像是透明的。
+                    destination-over	在源图像上方显示目标图像。
+                    destination-atop	在源图像顶部显示目标图像。源图像之外的目标图像部分不会被显示。
+                    destination-in	在源图像中显示目标图像。只有源图像内的目标图像部分会被显示，源图像是透明的。
+                    destination-out	在源图像外显示目标图像。只有源图像外的目标图像部分会被显示，源图像是透明的。
+                    lighter	显示源图像 + 目标图像。
+                    copy	显示源图像。忽略目标图像。
+                    source-over	使用异或操作对源图像与目标图像进行组合。
+</pre>
+
+
+<script>
+
+    var gco = new Array();
+    gco.push("source-atop");
+    gco.push("source-in");
+    gco.push("source-out");
+    gco.push("source-over");
+    gco.push("destination-atop");
+    gco.push("destination-in");
+    gco.push("destination-out");
+    gco.push("destination-over");
+    gco.push("lighter");
+    gco.push("copy");
+    gco.push("xor");
+    for (n = 0; n < gco.length; n++) {
+        document.write("<div id='p_" + n + "' style='float:left;'>" + gco[n] + ":<br>");
+        var c = document.createElement("canvas");
+        c.width = 120;
+        c.height = 100;
+        document.getElementById("p_" + n).appendChild(c);
+        var ctx = c.getContext("2d");
+        ctx.fillStyle = "blue";
+        ctx.fillRect(10, 10, 50, 50);
+        ctx.globalCompositeOperation = gco[n];
+        ctx.beginPath();
+        ctx.fillStyle = "red";
+        ctx.arc(50, 50, 30, 0, 2 * Math.PI);
+        ctx.fill();
+        document.write("</div>");
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>word-wrap</title>
+    <style type="text/css">
+        .code
+        {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .index
+        {
+            width: 160px;
+            margin: 0 auto;
+            margin-top: 50px;
+            border: 1px red solid;
+        }
+        .index2
+        {
+            width: 160px;
+            margin: 0 auto;
+            margin-top: 50px;
+            border: 1px red solid;
+            word-wrap: break-word;
+        } 
+    </style>
+</head>
+<body>
+    <div class="code">
+        <pre>
+            语法
+            word-wrap: normal|break-word;
+            值	描述
+            normal	只在允许的断字点换行（浏览器保持默认处理）。
+            break-word	在长单词或 URL 地址内部进行换行。
+      </pre>
+    </div>
+  
+    <div class="index">
+          This paragraph contains a very longthisisaveryveryveryveryveryverylongword. The
+        long word will break and wrap to the next line
+        <a href="#">www.cccccccccccccccccccccccccccccccccccccccccccccccccccc.com</a>
+    </div>
+    <div class="index2">
+        <a href="#">www.cccccccccccccccccccccccccccccccccccccccccccccccccccc.com</a>
+    </div>
+</body>
+</html>

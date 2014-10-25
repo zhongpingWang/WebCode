@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <pre>
+          浏览器支持
+                Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 strokeStyle 属性。
+                注释：Internet Explorer 8 以及更早的版本不支持 &lt;canvas> 元素。
+                定义和用法
+                strokeStyle 属性设置或返回用于笔触的颜色、渐变或模式。
+                默认值：	#000000
+                JavaScript 语法：	context.strokeStyle=color|gradient|pattern;
+                属性值
+                值	描述
+                color	指示绘图笔触颜色的 CSS 颜色值。默认值是 #000000。
+                gradient	用于填充绘图的渐变对象（线性或放射性）
+                pattern	用于创建 pattern 笔触的 pattern 对象
+
+
+</pre>
+    <canvas id="myCanvas" style="border: 1px red solid"></canvas>
+    <canvas id="myCanvas2"></canvas>
+      <canvas id="myCanvas4"></canvas>
+    
+<canvas id="myCanvas3" width="300" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+    <script type="text/javascript">
+        
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.strokeStyle = "#0000ff";
+        ctx.strokeRect(20, 20, 150, 100);
+
+
+        var c = document.getElementById("myCanvas2");
+        var ctx = c.getContext("2d");
+
+        var gradient = ctx.createLinearGradient(0, 0, 170, 0);
+        gradient.addColorStop("0", "magenta");
+        gradient.addColorStop("0.5", "blue");
+        gradient.addColorStop("1.0", "red"); 
+        // 用渐变进行填充
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 5;
+        ctx.strokeRect(20, 20, 150, 100);
+
+
+        var c = document.getElementById("myCanvas3");
+        var ctx = c.getContext("2d"); 
+        ctx.font = "30px Verdana";
+        // Create gradient
+        var gradient = ctx.createLinearGradient(0, 0, c.width, 0);
+        gradient.addColorStop("0", "magenta");
+        gradient.addColorStop("0.5", "blue");
+        gradient.addColorStop("1.0", "red");
+        // Fill with gradient
+        ctx.strokeStyle = gradient;
+        ctx.strokeText("w3school.com.cn", 10, 50);
+
+
+
+        var c = document.getElementById("myCanvas4");
+        var ctx = c.getContext("2d"); 
+        var img = new Image();
+        img.src = "image/niu.gif";
+        //var img = document.getElementById("niu");
+        img.onload = function () {
+            var pat = ctx.createPattern(img, "repeat"); 
+            ctx.strokeStyle = pat;
+            ctx.lineWidth = 15;
+            ctx.strokeRect(0, 0, 200, 150);
+        }
+        
+
+        ctx.font = "30px Verdana";
+        // Create gradient
+        var gradient = ctx.createLinearGradient(0, 0, c.width, 0);
+        gradient.addColorStop("0", "magenta");
+        gradient.addColorStop("0.5", "blue");
+        gradient.addColorStop("1.0", "red");
+        // Fill with gradient
+        ctx.strokeStyle = gradient;
+        ctx.strokeText("w3school", 10, 50);
+
+    </script>
+</body>
+</html>

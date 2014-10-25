@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <pre>
+            浏览器支持
+            Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 createPattern() 方法。
+            注释：Internet Explorer 8 或更早的浏览器不支持 &lt;canvas> 元素。
+            定义和用法
+            createPattern() 方法在指定的方向内重复指定的元素。
+            元素可以是图片、视频，或者其他 &lt;canvas> 元素。
+            被重复的元素可用于绘制/填充矩形、圆形或线条等等。
+            JavaScript 语法：
+            context.createPattern(image,"repeat|repeat-x|repeat-y|no-repeat");
+            参数值
+            参数	描述
+            image	规定要使用的图片、画布或视频元素。
+            repeat	默认。该模式在水平和垂直方向重复。
+            repeat-x	该模式只在水平方向重复。
+            repeat-y	该模式只在垂直方向重复。
+            no-repeat	该模式只显示一次（不重复）。
+
+</pre>
+    <p>
+        要用到的图片：</p>
+    <img src="image/lamp.gif" id="lamp" />
+    <p>
+        Canvas:</p>
+    <button onclick="draw('repeat')">
+        Repeat</button>
+    <button onclick="draw('repeat-x')">
+        Repeat-x</button>
+    <button onclick="draw('repeat-y')">
+        Repeat-y</button>
+    <button onclick="draw('no-repeat')">
+        No-repeat</button>
+    <canvas id="myCanvas" width="300" height="150" style="border: 1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+    <script type="text/javascript">
+        function draw(direction) {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.clearRect(0, 0, c.width, c.height);
+            var img = document.getElementById("lamp")
+            var pat = ctx.createPattern(img, direction);
+            ctx.rect(0, 0, 150, 100);
+            ctx.fillStyle = pat;
+            ctx.fill();
+        }
+    </script>
+</body>
+</html>

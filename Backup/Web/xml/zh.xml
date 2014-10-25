@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tag>
+  <rel id="userName">用户名：</rel>
+  <rel id="userPwd">密码：</rel> 
+  <rel id="login">登陆</rel>
+  <rel id="exit">退出</rel> 
+  <rel id="ckimg">记住密码</rel>
+ 
+
+</tag>

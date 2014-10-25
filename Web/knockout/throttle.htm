@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+</head>
+<body>
+    <p>
+        Type stuff here:
+        <input data-bind='value: instantaneousValue, valueUpdate: "afterkeydown"' /></p>
+    <p>
+        Current throttled value: <b data-bind='text: throttledValue'></b>
+    </p>
+    <div data-bind="visible: loggedValues().length > 0">
+        <h3>
+            Stuff you have typed:</h3>
+        <ul data-bind="foreach: loggedValues">
+            <li data-bind="text: $data"></li>
+        </ul>
+    </div>
+    
+    <script type="text/javascript">
+        function AppViewModel() {
+            this.instantaneousValue = ko.observable();
+            this.throttledValue = ko.computed(this.instantaneousValue).extend({ throttle: 1000 });
+            // Keep a log of the throttled values
+            this.loggedValues = ko.observableArray([]);
+            this.throttledValue.subscribe(function (val) {
+                if (val !== '')
+                    this.loggedValues.push(val);
+            }, this);
+        }
+        ko.applyBindings(new AppViewModel());
+
+
+    </script>
+
+</body>
+</html>

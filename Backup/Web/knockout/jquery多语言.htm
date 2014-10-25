@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+    <script src="lans/zh-cn/lang.js" type="text/javascript"></script>
+</head>
+<body>
+    <span id="menu_admin" rel="lan"></span>
+    <img id="src" rel="lan" />
+    <select id="lans">
+        <option>en</option>
+        <option>ja-jp</option>
+        <option>zh-cn</option>
+    </select>
+    <script type="text/javascript">
+
+        var lanStatic = {
+            //0 首次加载  1动态加载
+            Init: function (type, codeDy) {
+                var code = "";
+                if (type == 0) {
+                    if (navigator.language) {
+                        code = navigator.language;
+                    } else {
+                        code = navigator.browserLanguage;
+                    }
+                    $("#lans").val(code.toLowerCase());
+                } else {
+                    code = codeDy;
+                }
+                var lansJsUrl = "lans/" + code + "/lang.js";
+                //                        var index = code.indexOf("-");
+                //                        if (index != -1) {
+                //                            code = code.substring(0, index);
+                //                        }
+                $.getScript(lansJsUrl, function (data) {
+
+
+                    $("[rel='lan']").each(function () {
+                        var id = $(this).attr("id");
+                        if ($(this).is("span")) {
+                            $(this).html(md_lang[id]);
+                        }
+                        if ($(this).is("img")) {
+                            if (md_lang[id] == undefined) {
+                                $(this).attr("src", "");
+                            } else {
+                                $(this).attr("src", md_lang[id]);
+                            }
+
+                        }
+                    });
+                });
+            },
+            //动态加载语言
+            DaynicLans: function () {
+                $("#lans").change(function () {
+
+                    var code = $(this).val();
+                    lanStatic.Init(1, code);
+                });
+            }
+
+        }
+
+        $(function () {
+            lanStatic.Init(0);
+            lanStatic.DaynicLans();
+        });
+
+
+        //     $.ajax({
+        //                    type: "get",
+        //                    dataType:"JSON",
+        //                    url: xmlURL,
+        //                    beforeSend: function (XMLHttpRequest) {
+        //                        //ShowLoading();
+        //                    },
+        //                    success: function (data, textStatus) {
+        //                        var lan = { title: "hellow", name: "hehe" }
+        //                        var lan2 = { title: "你好", name: "呵呵" }
+        //                        var ViewModel = {
+        //                            lans: ko.observable(ko.toJSON(data)),
+        //                            optionValues: ["En-us", "zh", "……"],
+        //                            selectedOptionValue: ko.observable("zh"),
+        //                            ChangeLans: function () {
+        //                                if (this.selectedOptionValue() == "En-us") {
+        //                                    this.lans(lan2);
+        //                                } else {
+        //                                    this.lans(lan);
+        //                                }
+        //                            }
+        //                        }  
+        //                        ko.applyBindings(ViewModel);
+        //                    },
+        //                    complete: function (XMLHttpRequest, textStatus) {
+        //                        //HideLoading();
+        //                    },
+        //                    error: function () {
+        //                        alert("error");
+        //                        //请求出错处理
+        //                    }
+        //                });
+
+
+
+
+           
+         
+    </script>
+</body>
+</html>

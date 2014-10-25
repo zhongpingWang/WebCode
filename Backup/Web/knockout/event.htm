@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        var viewModel = {
+            myFunction: function ( data, event,name) {
+                if (name) {
+                    alert(name);
+                } else {
+                    alert("");
+                }
+            }
+        };
+
+
+        $(function () {
+            ko.applyBindings(viewModel);
+        });
+
+    </script>
+</head>
+<body>
+    <button data-bind="click:myFunction">
+        Click me
+    </button>
+     
+      <button data-bind="click:function(data,event){ myFunction(data,event,'Nname'); }">
+    Click me
+</button>
+
+    <span id="show"></span>
+
+</body>
+</html>

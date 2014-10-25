@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>background-image</title>
+    <style type="text/css">
+        .code
+        {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .index
+        {
+            width: 1000px;
+            margin: 0 auto;
+            height: 100px;
+            background-image: -moz-linear-gradient(top , #000, #0382AD);
+            background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#000), to(#0382AD));
+            background-image: -o-linear-gradient(top , #000, #0382AD);
+        }
+        
+        .index2
+        {
+            width: 1000px;
+            margin: 0 auto;
+            height: 100px;
+            background-image: -moz-linear-gradient(left,#0070C8,#00DBFF);
+            background-image: -webkit-gradient(linear,left top,right bottom,color-stop(0,#0070C8),color-stop(1,#00DBFF));
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0070C8',endColorstr='#00DBFF',GradientType='1');
+            background-image: -ms-linear-gradient(left,#0070C8,#00DBFF);
+        }
+        .index3
+        {
+            width: 1000px;
+            margin: 0 auto;
+            height: 100px;
+            background-image: -webkit-radial-gradient(470px 47px, ellipse farthest-corner, rgb(100%,100%,50%) 20%, rgba(90%,60%,60%,.4) 30%, rgb(90%,90%,100%) 60%);
+            background-image: radial-gradient(470px 47px, ellipse farthest-corner, rgb(100%,100%,50%) 20%, rgba(80%,60%,60%,.4) 30%, rgb(90%,90%,100%) 60%);
+        }
+        .index4
+        {
+            width: 1000px;
+            margin: 0 auto;
+            height: 100px;
+            background: -webkit-radial-gradient(45px 45px, farthest-corner, rgb(255, 0, 0) 0%, rgb(0, 0, 255) 100%);
+            background: radial-gradient(45px 45px, farthest-corner, rgb(255, 0, 0) 0%, rgb(0, 0, 255) 100%);
+        }
+        .index5
+        {
+            width: 1000px;
+            margin: 0 auto;
+            height: 100px;
+            background: -webkit-radial-gradient(circle 16px at 20px 50%, black 0%, black 14px, rgba(0,0,0,0.3) 18px, rgba(0,0,0,0) 19px);
+            background: radial-gradient(circle 16px at 20px 50%, black 0%, black 14px, rgba(0,0,0,0.3) 18px, rgba(0,0,0,0) 19px);
+        }
+        .index6
+        {
+            width: 1000px;
+            margin: 0 auto;
+            height: 100px;
+            background-image: repeating-linear-gradient(180deg,rgb(26,198,204),rgb(26,198,204) 7%, rgb(100,100,100) 10%);
+        }
+        .index7
+        {
+            width: 1000px;
+            margin: 0 auto;
+            height: 100px;
+            background-image: repeating-linear-gradient(-45deg, transparent, transparent 25px, rgba(25,255,255,1) 25px, rgba(255,255,255,1) 50px);
+        }
+        .index8
+        {
+            width: 1000px;
+            margin: 0 auto;
+            height: 100px;
+            background-image: -webkit-radial-gradient(center center, circle closest-side, #ff0000, #ff9f40, #fff81f, #050a99, #0b990f, #911c99, #d24fe0);
+            background-image: radial-gradient(center center, circle closest-side, #ff0000 ,#ff9f40 ,#fff81f ,#050a99 ,#0b990f ,#911c99 ,#d24fe0 );
+        }
+        .index9
+        {
+            width: 1000px;
+            margin: 0 auto;
+            height: 100px;
+            background-image: -webkit-repeating-radial-gradient(center center, circle closest-side, #ff0000 0%, #19ff30 29%);
+            background-image: repeating-radial-gradient(center center, circle closest-side, #ff0000 0%, #19ff30 29%);
+        }
+        .index10 {
+             width: 1000px;
+            margin: 0 auto;
+            height: 500px;
+            background-image:url(../image/bg_flower.gif), url(../image/feng.jpg);
+        }
+    </style>
+</head>
+<body>
+    <div class="code">
+        <pre>
+
+            语法：
+            background-image： &lt;bg-image> [ ,  &lt;bg-image> ]*
+             &lt;bg-image> = none |  &lt;url> |  &lt;linear-gradient> |  &lt;radial-gradient> |  &lt;repeating-linear-gradient> |  &lt;repeating-radial-gradient>
+            默认值：none
+            取值：
+            none：
+            无背景图。
+             &lt;url>：
+            使用绝对或相对地址指定背景图像。
+             &lt;linear-gradient>：
+            使用线性渐变创建背景图像。（CSS3）
+             &lt;radial-gradient>：
+            使用径向(放射性)渐变创建背景图像。（CSS3）
+             &lt;repeating-linear-gradient>：
+            使用重复的线性渐变创建背景图像。（CSS3）
+             &lt;repeating-radial-gradient>：
+            使用重复的径向(放射性)渐变创建背景图像。（CSS3）
+            说明：
+            设置或检索对象的背景图像。
+            如果设置了background-image，同时也建议作者设置background-color用于当背景图像不可见时保持与文本一定的对比。
+            对应的脚本特性为backgroundImage。
+
+</pre>
+    </div>
+    
+    <div class="index10"></div>
+
+    <br/>
+    <div class="index">
+        background-image: -o-linear-gradient(top , #000, #0382AD);
+    </div>
+    <br />
+    <div class="index2">
+    </div>
+    <br />
+    <div class="index3">
+        background-image: -webkit-radial-gradient(470px 47px, ellipse farthest-corner, rgb(100%,100%,50%)
+        20%, rgba(90%,60%,60%,.4) 30%, rgb(90%,90%,100%) 60%);
+    </div>
+    <br />
+    <div class="index4">
+        background: -webkit-radial-gradient(45px 45px, farthest-corner, rgb(255, 0, 0) 0%,
+        rgb(0, 0, 255) 100%);
+    </div>
+    <br />
+    <div class="index5">
+        background: -webkit-radial-gradient(circle 16px at 20px 50%, black 0%, black 14px,
+        rgba(0,0,0,0.3) 18px, rgba(0,0,0,0) 19px);
+    </div>
+    <br />
+    <div class="code">
+        <pre>
+   ormal grammar: repeating-linear-gradient(  [  &lt;angle> | to  &lt;side-or-corner> ,]?  &lt;color-stop> [,  &lt;color-stop>]+ )
+                                            \---------------------------------/ \----------------------------/
+                                              Definition of the gradient line         List of color stops  
+
+                              where  &lt;side-or-corner> = [left | right] || [top | bottom]
+                                    and  &lt;color-stop>     =  &lt;color> [  &lt;percentage> |  &lt;length> ]?
+                                    <br />
+</pre>
+    </div>
+    <div class="index6">
+        background-image: repeating-linear-gradient(180deg,rgb(26,198,204),rgb(26,198,204)
+        7%, rgb(100,100,100) 10%);
+    </div>
+    <br />
+    <div class="index7">
+        background-image: repeating-linear-gradient(-45deg, transparent, transparent 25px,
+        rgba(25,255,255,1) 25px, rgba(255,255,255,1) 50px);
+    </div>
+    <br />
+    <div class="index8">
+    </div>
+    <br />
+    <div class="index9">
+        background-image: repeating-radial-gradient(center center, circle closest-side,
+        #ff0000 0%, #19ff30 29%);</div>
+</body>
+</html>

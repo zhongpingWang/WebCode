@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+    <body>
+        
+        <pre>
+
+               context.fillRect(x,y,width,height);
+                参数值
+                参数	描述
+                x	矩形左上角的 x 坐标
+                y	矩形左上角的 y 坐标
+                width	矩形的宽度，以像素计
+                height	矩形的高度，以像素计
+
+</pre>
+
+        <canvas id="myCanvas"></canvas>
+        
+         <canvas id="myCanvas2"></canvas>
+        <script type="text/javascript">
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.fillStyle = "red";//颜色 默认为黑色
+            ctx.fillRect(0,0,100,100);
+
+
+            var c = document.getElementById("myCanvas2");
+            var ctx = c.getContext("2d");
+            var my_gradient = ctx.createLinearGradient(0, 0, 170, 0);
+            my_gradient.addColorStop(0, "black");
+            my_gradient.addColorStop(1, "white");
+            ctx.fillStyle = my_gradient;
+            ctx.fillRect(20, 20, 150, 100);
+        </script>
+    </body>
+</html>

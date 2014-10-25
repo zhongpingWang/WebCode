@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <pre>
+
+                浏览器支持
+            Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 lineCap 属性。
+            注释：Internet Explorer 8 以及更早的版本不支持 &lt;canvas> 元素。
+            定义和用法
+            lineCap 属性设置或返回线条末端线帽的样式。
+            注释："round" 和 "square" 会使线条略微变长。
+            默认值：	butt
+            JavaScript 语法：	context.lineCap="butt|round|square";
+            属性值
+            值	描述
+            butt	默认。向线条的每个末端添加平直的边缘。
+            round	向线条的每个末端添加圆形线帽。
+            square	向线条的每个末端添加正方形线帽。
+</pre>
+    <p>
+        三种不同的线帽：</p>
+    <canvas id="myCanvas" width="300" height="150" style="border: 1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+    <script>
+
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+
+        ctx.beginPath();
+        ctx.lineWidth = 10;
+        ctx.lineCap = "butt";
+        ctx.moveTo(20, 20);
+        ctx.lineTo(200, 20);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.lineCap = "round";
+        ctx.moveTo(20, 40);
+        ctx.lineTo(200, 40);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.lineCap = "square";
+        ctx.moveTo(20, 60);
+        ctx.lineTo(200, 60);
+        ctx.stroke();
+
+    </script>
+</body>
+</html>

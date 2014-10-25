@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>html5 拖拽</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style type="text/css">
+            #timing{width: 80px; height: 30px; line-height: 30px; text-align: center; border: 1px solid #000000; margin-bottom: 100px;}
+            #mdiv{ width: 500px; height: 300px; border:1px solid #000000;}
+        </style>
+    </head>
+    <body>
+        <div id="timing" draggable="true">时间</div>
+        <div id="mdiv"></div>
+        <script type="text/javascript">
+            var timing = document.getElementById("timing");
+            var mdiv = document.getElementById("mdiv");
+            var tmp = "";
+
+            timing.addEventListener("dragstart", function (e) {
+                var d = new Date();
+                e.dataTransfer.setData("text/plain", d.toLocaleTimeString());
+            }, false);
+
+            mdiv.addEventListener("drop", function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+                tmp = e.dataTransfer.getData("text/plain");
+                e.target.innerHTML += tmp + "<br/>";
+            }, false);
+
+            mdiv.addEventListener("dragover", function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+            }, false);
+        </script>
+    </body>
+</html>
+    

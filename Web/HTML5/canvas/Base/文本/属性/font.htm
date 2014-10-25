@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <pre>
+                        浏览器支持
+                        Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 fillStyle 属性。
+                        注释：Internet Explorer 8 以及更早的版本不支持 &lt;canvas> 元素。
+                        定义和用法
+                        font 属性设置或返回画布上文本内容的当前字体属性。
+                        font 属性使用的语法与 CSS font 属性相同。
+                        默认值：	10px sans-serif
+                        JavaScript 语法：	context.font="italic small-caps bold 12px arial";
+                        属性值
+                        值	描述
+                        font-style	
+                        规定字体样式。可能的值：
+                        normal
+                        italic
+                        oblique
+                        font-variant	
+                        规定字体变体。可能的值：
+                        normal
+                        small-caps
+                        font-weight	
+                        规定字体的粗细。可能的值：
+                        normal
+                        bold
+                        bolder
+                        lighter
+                        100
+                        200
+                        300
+                        400
+                        500
+                        600
+                        700
+                        800
+                        900
+                        font-size / line-height	规定字号和行高，以像素计。
+                        font-family	规定字体系列。
+                        caption	使用标题控件的字体（比如按钮、下拉列表等）。
+                        icon	使用用于标记图标的字体。
+                        menu	使用用于菜单中的字体（下拉列表和菜单列表）。
+                        message-box	使用用于对话框中的字体。
+                        small-caption	使用用于标记小型控件的字体。
+                        status-bar	使用用于窗口状态栏中的字体。
+                        
+                        可以按顺序设置如下属性：
+                            font-style
+                            font-variant
+                            font-weight
+                            font-size/line-height
+                            font-family
+
+                            italic small-caps bold 40px arial
+</pre>
+
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.font = "italic small-caps bold 40px arial";
+    ctx.fillText("Hello World", 10, 50);
+
+</script>
+</body>
+</html>

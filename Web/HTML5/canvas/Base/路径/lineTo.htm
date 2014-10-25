@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <pre>
+            浏览器支持
+            Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 lineTo() 方法。
+            注释：Internet Explorer 8 或更早的浏览器不支持 &lt;canvas> 元素。
+            定义和用法
+            lineTo() 方法添加一个新点，然后创建从该点到画布中最后指定点的线条（该方法并不会创建线条）。
+            提示：请使用 stroke() 方法在画布上绘制确切的路径。
+            JavaScript 语法：
+            context.lineTo(x,y);
+            参数值
+            参数	描述
+            x	路径的目标位置的 x 坐标
+            y	路径的目标位置的 x 坐标
+</pre>
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(300, 150);
+    ctx.stroke();
+
+</script>
+
+</body>
+</html>

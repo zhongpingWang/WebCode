@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ko 多语言</title>
+    <script src="Scripts/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="ko/knockout-2.3.0.js" type="text/javascript"></script>
+    <script src="ko/Default.js" type="text/javascript"></script>
+    <link href="ko/Default.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <table class="table">
+        <tr>
+            <td colspan="4" class="center">
+                <span data-bind="css:mulitChange,style:{fontSize:lanSize}">多语言</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span data-bind="text:langs().menu_admin_members">通讯录</span>
+            </td>
+            <td>
+                <span data-bind="text:langs().menu_apps">应用大全</span>
+            </td>
+            <td>
+                <span data-bind="text:langs().menu_group">我的群组</span>
+            </td>
+            <td>
+                <span data-bind="text:langs().menu_help">使用帮助</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <img data-bind="attr:{src:langs().src}" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <select data-bind="options: optionValues, value: selectedOptionValue">
+                </select>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <pre>
+            浏览器支持
+            Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 strokeRect() 方法。
+            注释：Internet Explorer 8 或更早的浏览器不支持 &lt;canvas> 元素。
+            定义和用法
+            strokeRect() 方法绘制矩形（不填色）。笔触的默认颜色是黑色。
+            提示：请使用 strokeStyle 属性来设置笔触的颜色、渐变或模式。
+            JavaScript 语法：
+            context.strokeRect(x,y,width,height);
+            参数值
+            参数	描述
+            x	矩形左上角的 x 坐标
+            y	矩形左上角的 y 坐标
+            width	矩形的宽度，以像素计
+            height	矩形的高度，以像素计
+</pre>
+    <canvas id="myCanvas" width="300" height="150" style="border: 1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+    <script>
+
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.strokeRect(20, 20, 150, 100);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        var viewModel = {
+
+            number: ko.observable(0),
+
+            resetClicks: function () {
+                this.number(0);
+            },
+            registerClick: function () {
+                this.number(this.number() + 1);
+
+            },
+
+            wantsSpam: ko.observable(true) // Initially checked
+        };
+        //依赖监控  或者 data-bind="checked:number()>3" 
+        viewModel.checkeds = ko.dependentObservable({
+
+            read: function () {
+                if (parseInt(this.number()) >= 3) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            },
+            write: function () {
+
+            },
+            owner: viewModel
+        });
+
+
+
+        $(function () {
+            ko.applyBindings(viewModel);
+        });
+
+    </script>
+</head>
+<body>
+    <p>
+        Send me spam:
+        <input type="checkbox" data-bind="checked: wantsSpam" /></p>
+    <span data-bind="click:registerClick">click</span> <span data-bind="click:resetClicks">
+        reset</span>
+    <p>
+        Send me spam:
+        <input type="checkbox" data-bind="checked:number()>3" /></p>
+    <p data-bind="text:checkeds">
+        <p data-bind="text:number">
+        </p>
+</body>
+</html>

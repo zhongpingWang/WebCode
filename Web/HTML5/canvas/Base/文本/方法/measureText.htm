@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <pre>
+            浏览器支持
+            Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 measureText() 方法。
+            注释：Internet Explorer 8 或更早的浏览器不支持 &lt;canvas> 元素。
+            定义和用法
+            measureText() 方法返回包含一个对象，该对象包含以像素计的指定字体宽度。
+            提示：如果您需要在文本向画布输出之前，就了解文本的宽度，那么请使用该方法。
+            JavaScript 语法：
+            context.measureText(text).width;
+            参数值
+            参数	描述
+            text	要测量的文本。
+</pre>
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.font = "30px Arial";
+    var txt = "Hello World";
+    ctx.fillText("width:" + ctx.measureText(txt).width, 10, 50);
+    ctx.fillText(txt, 10, 100);
+
+</script>
+</body>
+</html>

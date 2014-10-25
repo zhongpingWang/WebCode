@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+</head>
+    <body>
+        
+        <div data-bind="showVisible:giftWrap">wo kao</div>
+        <label ><input type="checkbox" data-bind="checked:giftWrap"/>select</label> 
+        
+        
+        <input type="text" data-bind="hasFocus:giftWrap"/>
+        
+        
+        <div data-bind="visible: giftWrap">You're editing the name</div>
+        <button data-bind="enable: !giftWrap(), click:function() { giftWrap(true) }">Edit name</button>
+        
+
+        <script type="text/javascript">
+            ko.bindingHandlers.slideVisible ={ 
+                update: function(element, valueAccessor, allBindingsAccessor) {
+                    var value = valueAccessor(), allBinds = allBindingsAccessor();
+                    var valueUnwrappend = ko.unwrap(value);
+                    var duration = allBinds.slideDruation || 400;
+                    if (valueUnwrappend == true) {
+                        $(element).slideDown(duration);
+                    } else {
+                        $(element).slideUp(duration);
+                    }
+                }
+            };
+
+
+            ko.bindingHandlers.showVisible = {
+                init: function (element, valueAccessor, allBindingsAccessor) {
+                    var value = ko.unwrap(new valueAccessor());
+                    $(element).toggle(value);
+                },
+
+
+                update: function (element, valueAccessor, allBindingsAccessor) {
+                    var value = valueAccessor(), allBindings = allBindingsAccessor();
+                    var valueUnwrappend = ko.unwrap(value);
+                    if (valueUnwrappend == true) {
+                        $(element).show();
+                    } else {
+                        $(element).hide();
+                    }
+                }
+            }
+
+
+            ko.bindingHandlers.hasFocus = {
+                init: function (element, valueAccessor, allBindingsAccessor) {
+                    $(element).focus(function () {
+                        var value = valueAccessor();
+                        value(true);
+                    });
+                    $(element).blur(function () {
+                        var value = valueAccessor();
+                        value(false);
+                    });
+                },
+                update: function (element, valueAccessor, allBindingsAccessor) {
+
+                    var value = valueAccessor();
+
+                    var valueUnwrappend = ko.unwrap(value);
+
+                    if (valueUnwrappend) {
+                        $(element).focus();
+                    } else {
+                        $(element).blur();
+                    }
+
+
+                }
+            }
+
+
+            var viewModel = {
+                giftWrap: ko.observable(false)
+                
+            };
+            ko.applyBindings(viewModel);
+
+
+        </script>
+
+    </body>
+</html>

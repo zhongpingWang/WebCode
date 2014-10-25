@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>translate</title>
+    <style type="text/css">
+        .code
+        {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .index
+        {
+            width: 1000px;
+            margin: 0 auto;
+            text-align: left;
+            border: 1px red solid;
+            height: 200px;
+            overflow: hidden;
+        }
+        .img
+        {
+            transform: translate(50px,100px);
+            -ms-transform: translate(50px,100px); /* IE 9 */
+            -webkit-transform: translate(50px,100px); /* Safari and Chrome */
+            -o-transform: translate(50px,100px); /* Opera */
+            -moz-transform: translate(50px,100px); /* Firefox */
+        }
+        .img2
+        {
+            transform: rotate(10deg);
+            -ms-transform: rotate(10deg); /* IE 9 */
+            -webkit-transform: rotate(10deg); /* Safari and Chrome */
+            -o-transform: rotate(10deg); /* Opera */
+            -moz-transform: rotate(10deg); /* Firefox */
+        }
+        .img3
+        {
+            transform: scale(2,4);
+            -ms-transform: scale(2,4); /* IE 9 */
+            -webkit-transform: scale(2,4); /* Safari 和 Chrome */
+            -o-transform: scale(2,4); /* Opera */
+            -moz-transform: scale(2,4); /* Firefox */
+        }
+        .img4
+        {
+            transform: skew(4deg,20deg);
+            -ms-transform: skew(4deg,20deg); /* IE 9 */
+            -webkit-transform: skew(4deg,20deg); /* Safari and Chrome */
+            -o-transform: skew(4deg,20deg); /* Opera */
+            -moz-transform: skew(4deg,20deg); /* Firefox */
+        }
+        .img5
+        {
+            transform: matrix(0.886,0.9,0,1,-100,0);
+            -ms-transform: matrix(0.886,0.9,0,1,-100,0); /* IE 9 */
+            -moz-transform: matrix(0.886,0.9,0,1,-100,0); /* Firefox */
+            -webkit-transform: matrix(0.886,0.9,0,1,-100,0); /* Safari and Chrome */
+            -o-transform: matrix(0.886,0.9,0,1,-100,0); /* Opera */
+        }
+    </style>
+</head>
+<body>
+    <div class="code">
+        <pre>
+
+           transform ： none | &lt;transform-function> [ &lt;transform-function> ]* 
+            也就是：
+            transform: rotate | scale | skew | translate |matrix;
+            
+            浏览器支持
+            Internet Explorer 10、Firefox、Opera 支持 transform 属性。
+            Internet Explorer 9 支持替代的 -ms-transform 属性（仅适用于 2D 转换）。
+            Safari 和 Chrome 支持替代的 -webkit-transform 属性（3D 和 2D 转换）。
+            Opera 只支持 2D 转换。
+
+
+            translate(x,y)  水平方向和垂直方向同时移动，
+ 
+             取值x表示x轴过渡值
+             取值y表示y轴过渡值  ----如果没有赋值，默认是0
+             默认以元素的中心点为基点，可以通过transform-origin进行基点的设置
+             x,y如果为负就反方向移动
+             
+             
+             rotate(  &lt;angle>);&lt;angle>为一个角度值，单位deg，可以为正数或者负数，正数是顺时针旋转，负数是逆时针旋转。
+
+            scale() 方法
+            通过 scale() 方法，元素的尺寸会增加或减少，根据给定的宽度（X 轴）和高度（Y 轴）参数：
+            
+            skew() 方法
+          通过 skew() 方法，元素翻转给定的角度，根据给定的水平线（X 轴）和垂直线（Y 轴）参数：
+
+            matrix() 方法
+        matrix() 方法把所有 2D 转换方法组合在一起。
+        matrix() 方法需要六个参数，包含数学函数，允许您：旋转、缩放、移动以及倾斜元素。
+
+</pre>
+    </div>
+    <div class="index">
+        <img class="img" src="../image/feng.jpg" />
+    </div>
+    <div class="index">
+        <img class="img2" src="../image/feng.jpg" />
+    </div>
+    <div class="index">
+        <img class="img3" src="../image/feng.jpg" />
+    </div>
+    <div class="index">
+        <img class="img4" src="../image/feng.jpg" />
+    </div>
+     <div class="index">
+        <img class="img5" src="../image/feng.jpg" />
+    </div>
+</body>
+</html>

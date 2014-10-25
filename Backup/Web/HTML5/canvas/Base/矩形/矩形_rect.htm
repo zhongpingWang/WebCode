@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    
+    <pre>
+
+            浏览器支持
+            Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 rect() 方法。
+            注释：Internet Explorer 8 或更早的浏览器不支持 &lt;canvas> 元素。
+            定义和用法
+            rect() 方法创建矩形。
+            提示：请使用 stroke() 或 fill() 方法在画布上实际地绘制矩形。
+            JavaScript 语法：
+            context.rect(x,y,width,height);
+            参数值
+            参数	描述
+            x	矩形左上角的 x 坐标
+            y	矩形左上角的 y 坐标
+            width	矩形的宽度，以像素计
+            height	矩形的高度，以像素计 
+</pre>
+    <canvas id="myCanvas"></canvas>
+    <script type="text/javascript">
+        
+
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.rect(20,20,150,100);
+        ctx.stroke();
+
+//        var c = document.getElementById("myCanvas");
+//        var ctx = c.getContext("2d");
+
+//        // 红色矩形
+//        ctx.beginPath();
+//        ctx.lineWidth = "6";
+//        ctx.strokeStyle = "red";
+//        ctx.rect(5, 5, 290, 140);
+//        ctx.stroke();
+
+//        // 绿色矩形
+//        ctx.beginPath();
+//        ctx.lineWidth = "4";
+//        ctx.strokeStyle = "green";
+//        ctx.rect(30, 30, 50, 50);
+//        ctx.stroke();
+
+//        // 蓝色矩形
+//        ctx.beginPath();
+//        ctx.lineWidth = "10";
+//        ctx.strokeStyle = "blue";
+//        ctx.rect(50, 50, 150, 80);
+//        ctx.stroke();
+
+    </script>
+
+
+</body>
+</html>

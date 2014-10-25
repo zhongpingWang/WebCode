@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tag>
+	<rel id="userName">User Name：</rel>
+  <rel id="userPwd">User Pwd：</rel>
+
+  <rel id="login">LogIn</rel>
+  <rel id="exit">Exit</rel>        
+
+  <rel id="ckimg">Remember Pwd</rel>
+ 
+  
+</tag>

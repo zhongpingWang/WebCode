@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <pre>
+            浏览器支持
+            Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 addColorStop() 方法。
+            注释：Internet Explorer 8 或更早的浏览器不支持 &lt;canvas> 元素。
+            定义和用法
+            addColorStop() 方法规定 gradient 对象中的颜色和位置。
+            addColorStop() 方法与 createLinearGradient() 或 createRadialGradient() 一起使用。
+            注释：您可以多次调用 addColorStop() 方法来改变渐变。如果您不对 gradient 对象使用该方法，那么渐变将不可见。为了获得可见的渐变，您需要创建至少一个色标。
+            JavaScript 语法：
+            gradient.addColorStop(stop,color);
+            参数值
+            参数	描述
+            stop	介于 0.0 与 1.0 之间的值，表示渐变中开始与结束之间的位置。
+            color	在结束位置显示的 CSS 颜色值
+
+</pre>
+
+
+
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+
+    var grd = ctx.createLinearGradient(0, 0, 170, 0);
+    grd.addColorStop(0, "black");
+    grd.addColorStop("0.3", "magenta");
+    grd.addColorStop("0.5", "blue");
+    grd.addColorStop("0.6", "green");
+    grd.addColorStop("0.8", "yellow");
+    grd.addColorStop(1, "red");
+
+    ctx.fillStyle = grd;
+    ctx.fillRect(20, 20, 150, 100); 
+
+</script>
+</body>
+</html>

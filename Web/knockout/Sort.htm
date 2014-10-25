@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="../jquery/jquery.tmpl.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+</head>
+<body>
+    <h2>
+        Not sorted</h2>
+    <ul data-bind="template: { name: 'instanceTmpl', foreach: instances }">
+    </ul>
+    <hr />
+    <button type="button" data-bind="click:add">
+        add</button>
+    <h2>
+        Sorted</h2>
+    <ul data-bind="template: { name: 'instanceTmpl', foreach: sortedInstances }">
+    </ul>
+    <script id="instanceTmpl" type="text/html">
+        <li>
+            <span data-bind="text: id"></span>
+            <input data-bind="value: FirstName" />
+        </li>
+    </script>
+    <script type="text/javascript">
+        function Instance(id, name) {
+            return {
+                id: ko.observable(id),
+                FirstName: ko.observable(name)
+            };
+        }
+
+        var viewModel = {
+            instances: ko.observableArray([
+        new Instance(1, "Zed"),
+        new Instance(2, "Jane"),
+        new Instance(3, "John"),
+        new Instance(4, "Anne"),
+        new Instance(5, "Ted")
+       ]),
+            add: function () {
+
+                this.instances.push(new Instance(6, "7654"));
+            }
+        };
+
+        viewModel.sortFunction = function (a, b) {
+            return a.FirstName().toLowerCase() > b.FirstName().toLowerCase() ? 1 : -1;
+        };
+
+        viewModel.sortedInstances = ko.dependentObservable(function () {
+            return this.instances.slice().sort(this.sortFunction);
+        }, viewModel);
+
+
+        ko.applyBindings(viewModel);
+    </script>
+</body>
+</html>

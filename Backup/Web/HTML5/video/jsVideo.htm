@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>js Video</title>
+    <style type="text/css">
+        .code
+        {
+            width: 1000px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="code">
+        <video id="myVideo">
+            <source src="mov_bbb.ogg/"/>
+              <source src="mov_bbb.mp4/"/>
+        </video>
+        <button type="button" onclick="playPause();" id="playOrPause">
+            play / paused</button>
+        <button type="button" onclick="abort();" id="Button1">
+            abort</button>
+    </div>
+    <script type="text/javascript">
+
+        var myVideo = document.getElementById("myVideo");
+
+        function playPause() {
+            // 然后，测试视频变量以查看 canPlayType 属性是否可用。如果可用，则支持 HTML5 video 元素并且执行所有其他代码。如果不支持视频，则语句 (video.canPlayType) 将返回 False 并显示一条消息。确认支持视频后，通过显示样式启用输入字段。
+            if (myVideo.canPlayType) {
+                alert("d");
+            }
+            if (myVideo.paused)
+                myVideo.play();
+            else
+                myVideo.pause();
+        }
+
+        function abort() {
+            myVideo.ended();
+        }
+
+
+        function makeBig() {
+            myVideo.width = 580;
+        }
+
+        function makeSmall() {
+            myVideo.width = 320;
+        }
+
+        function makeNormal() {
+            myVideo.width = 480;
+        }
+    </script>
+</body>
+</html>

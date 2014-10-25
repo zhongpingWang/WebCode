@@ -1,0 +1,24 @@
+﻿body 
+{
+    padding: 0;
+    margin: 0;
+}
+.LoginBox 
+{
+     position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -130px 0 0 -210px;
+    width: 420px;
+    height: 220px;text-align: center;
+    background-color: #ececec;
+}
+.text{ width: 170px;text-align: right; display: inline-block;margin-top: 35px;}
+.op{ width: 100%;padding-top: 20px;}
+.op span{cursor: pointer; background-color: #666;display:inline-block;width: 80px;height: 28px;vertical-align: middle;line-height: 28px;border: 1px #777 solid; }
+.op span:hover{ background-color: #333;border: 1px #666666 solid;}
+#exit{ margin-left: 20px;}
+.ckimg{ background: url('../images/markUnCompleteSmall.png') no-repeat 0 -17px;padding-left: 20px;cursor: pointer; }
+.remoberPwd{ background-position: 0px 1px;}
+.changeLang{ float: right;margin-right: 18px;}
+.bottom{ padding-top: 20px;}

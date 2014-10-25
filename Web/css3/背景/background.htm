@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>background</title>
+    <style type="text/css">
+        .code
+        {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .index
+        {
+            border: 1px red solid;
+            margin: 0 auto;
+            width: 1000px;
+            height: 500px;
+            background: url(../image/bg_flower.gif) no-repeat scroll 10px 20px,url(../image/bg_flower.gif) no-repeat scroll 50px 60px,url(../image/bg_flower.gif) no-repeat scroll 90px 100px;
+            background-origin: content-box,content-box,content-box;
+            background-clip: padding-box,padding-box,padding-box;
+            background-size: 50px 60px,50px 60px,50px 60px;
+        }
+           .index2
+        {
+            border: 1px red solid;
+            margin: 0 auto;
+            width: 1000px;
+            height: 500px;
+            background: url(../image/bg_flower.gif) no-repeat fixed 400px 400px,url(../image/bg_flower.gif) no-repeat scroll 50px 60px,url(../image/bg_flower.gif) no-repeat local 90px 100px;
+            background-origin: content-box,content-box,content-box;
+            background-clip: padding-box,padding-box,padding-box;
+            background-size: 50px 60px,50px 60px,50px 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="code">
+        <pre>
+            background：[ background-image ] || [ background-repeat ] || [ background-attachment ] || [ background-position ]
+            相关属性：[ background-origin ] || [ background-clip ] || [ background-size ]
+            取值：
+            [ background-image ]：
+            指定对象的背景图像。可以是真实图片路径或使用渐变创建的“背景图像”
+            [ background-repeat ]：
+            指定对象的背景图像如何铺排填充。
+            [ background-attachment ]：
+            指定对象的背景图像是随对象内容滚动还是固定的。
+            [ background-position ]：
+            指定对象的背景图像位置。
+            [ background-origin ]：
+            指定对象的背景图像显示的原点。
+            [ background-clip ]：
+            指定对象的背景图像向外裁剪的区域。
+            [ background-size ]：
+            指定对象的背景图像的尺寸大小。
+            
+            
+            
+            
+            
+            background-attachment
+
+            说明：设置或检索背景图像是随对象内容滚动还是固定的。必须先指定background-image属性
+
+            语法：background-attachment： &lt;attachment> [ ,  &lt;attachment> ]*
+
+             &lt;attachment> = fixed | local | scroll（默认值）
+
+            1）fixed：背景图像相对于窗体固定。演示页面
+
+            2）scroll：背景图像相对于元素固定，也就是说当元素内容滚动时背景图像不会跟着滚动，因为背景图像总是要跟着元素本身。但会随元素的祖先元素或窗体一起滚动。
+
+            3）local：背景图像相对于元素内容固定，也就是说当元素随元素滚动时背景图像也会跟着滚动，因为背景图像总是要跟着内容。（CSS3）
+
+            兼容性：
+
+            IE8及更早浏览器不支持CSS3新增参数值：local。
+
+            Firefox4.0-8.0不支持CSS3新增参数值：local。
+</pre>
+    </div>
+    <div class="index"></div>
+    <div class="index2"></div>
+</body>
+</html>

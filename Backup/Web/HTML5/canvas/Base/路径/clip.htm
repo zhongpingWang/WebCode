@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <pre>
+            浏览器支持
+            Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 clip() 方法。
+            注释：Internet Explorer 8 或更早的浏览器不支持&lt;canvas> 元素。
+            定义和用法
+            clip() 方法从原始画布中剪切任意形状和尺寸。
+            提示：一旦剪切了某个区域，则所有之后的绘图都会被限制在被剪切的区域内（不能访问画布上的其他区域）。您也可以在使用 clip() 方法前通过使用 save() 方法对当前画布区域进行保存，并在以后的任意时间对其进行恢复（通过 restore() 方法）。
+            JavaScript 语法：
+            context.clip();
+</pre>
+    <p>
+        不使用 clip()：</p>
+    <canvas id="myCanvas" width="300" height="150" style="border: 1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+    <script>
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        // Draw a rectangle
+        ctx.rect(50, 20, 200, 120);
+        ctx.stroke();
+        // Draw red rectangle
+        ctx.fillStyle = "green";
+        ctx.fillRect(0, 0, 150, 100);
+    </script>
+    <br />
+    <p>
+        使用 clip()：</p>
+    <canvas id="myCanvas2" width="300" height="150" style="border: 1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+    <script>
+        var c = document.getElementById("myCanvas2");
+        var ctx = c.getContext("2d");
+        // Clip a rectangular area
+        ctx.rect(50, 20, 200, 120);
+        // ctx.fillStyle = "red"
+        //  ctx.fill();
+        ctx.stroke();
+        ctx.clip();
+        // Draw red rectangle after clip()
+        ctx.fillStyle = "green";
+        ctx.fillRect(0, 0, 150, 100);
+    </script>
+</body>
+</html>

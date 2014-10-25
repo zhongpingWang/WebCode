@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+      <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+</head>
+<body>
+<p>
+    Name: 
+    <b data-bind="visible: !editing(), text: name, click: edit">&nbsp;</b>
+    <input data-bind="visible: editing, value: name, hasFocus: editing" />
+</p>
+<p><em>Click the name to edit it; click elsewhere to apply changes.</em></p>
+
+    <script type="text/javascript">
+
+        function PersonViewModel(name) {
+            // Data
+            this.name = ko.observable(name);
+            this.editing = ko.observable(false);
+
+            // Behaviors
+            this.edit = function () { this.editing(true) }
+        }
+
+        ko.applyBindings(new PersonViewModel("Bert Bertington"));
+
+
+    </script>
+</body>
+</html>

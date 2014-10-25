@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        body{ padding: 0;margin: 0;}
+        #one {
+            width: 100%;height: 500px;
+            background: url(image/1.jpg) no-repeat 50% 0px;
+        }
+        #two {
+            width: 100%;height: 500px;
+            background: url(image/2.jpg) no-repeat 50% 0px;
+        }
+        #three {
+            width: 100%;height: 500px;
+            background: url(image/3.jpg) no-repeat 50% 500px;
+        }
+        #four {
+            width: 100%;height: 500px;
+            background: url(image/4.jpg) no-repeat 50% 0px;
+        }
+        
+    </style>
+    
+    <script type="text/javascript">
+        var Mrentop = 0;
+        var Move = {
+            init: function () {
+
+            },
+
+            ScrollOp: function () {
+                var top2 = $(window).scrollTop();
+                var diffTop = top2 - Mrentop;
+                Mrentop = top2;
+                var bpy = parseInt($("#one").css("background-position-y"));
+                var newBpy = bpy - diffTop;
+                $("#one").css("background-position-y", newBpy);
+
+                bpy = parseInt($("#two").css("background-position-y"));
+                newBpy = bpy - diffTop;
+                $("#two").css("background-position-y", newBpy);
+
+                bpy = parseInt($("#three").css("background-position-y"));
+                newBpy = bpy - diffTop;
+                $("#three").css("background-position-y", newBpy);
+
+                bpy = parseInt($("#four").css("background-position-y"));
+                newBpy = bpy - diffTop;
+                $("#four").css("background-position-y", newBpy);
+
+            }
+
+
+
+        }
+
+        $(function () {
+            Mrentop = $(window).scrollTop();
+            $(window).scroll(function () {
+                Move.ScrollOp();
+            });
+        });
+
+    </script>
+    
+    
+
+</head>
+<body>
+    <div id="big">
+        <div id="one"></div>
+           <div id="two"></div>
+        <div id="three"></div>
+           <div id="four"></div>
+    </div>
+</body>
+</html>

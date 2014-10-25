@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<tag>
+  <rel id="userName">Nom d'utilisateur：</rel>
+  <rel id="userPwd">Mot de passe：</rel>
+
+  <rel id="login">Login</rel>
+  <rel id="exit">Sortir de</rel>
+
+  <rel id="ckimg">Mémoriser le mot de passe</rel>
+
+
+</tag>

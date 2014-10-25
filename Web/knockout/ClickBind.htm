@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        var viewModel = {
+            numberOfClicks: ko.observable(0),
+            incrementClickCounter: function () {
+                var previousCount = this.numberOfClicks();
+                this.numberOfClicks(previousCount + 1);
+                alertSay(this.numberOfClicks());
+            }
+        };
+        function alertSay(val) {
+            alert(val);
+        }
+
+
+        var someObject = {
+            age: ko.observable(0),
+            someFunction: function () {
+                alert(0);
+            }
+        }
+
+        $(function () {
+            ko.applyBindings(viewModel);
+        });
+
+    </script>
+</head>
+<body>
+<div>
+    You've clicked <span data-bind="text: numberOfClicks"></span> times
+    <button data-bind="click: incrementClickCounter">Click me</button>
+    
+    <button data-bind="click: someObject.someFunction.bind(someObject)">
+    Click me
+</button>
+    <!-- <button data-bind="click: function() { viewModel.myFunction('param1', 'param2') }">
+             Click me
+         </button>
+        
+        传递 event 匿名函数
+        
+        注3: 允许执行默认事件
+
+        默认情况下，Knockout会阻止冒泡，防止默认的事件继续执行。例如，如果你点击一个a连接，
+        在执行完自定义事件时它不会连接到href地址。这特别有用是因为你的自定义事件主要就是操作你的view model，
+        而不是连接到另外一个页面。当然，如果你想让默认的事件继续执行，你可以在你click的自定义函数里返回true
+        <button data-bind="click: function(event) { viewModel.myFunction(event, 'param1', 'param2') }"> 
+            Click me
+        </button>
+        
+        <button data-bind="click: someObject.someFunction.bind(someObject)">
+            Click me
+        </button>
+        如果你是C#或Java开发人员，你可以疑惑为什么我们还要用bind函数到一个对象想，特别是像调用someObject.someFunction。 原因是在JavaScript里，函数自己不是类的一部分，他们在单独存在的对象，有可能多个对象都引用同样的someFunction函数，所以当这个函数被调用的时候它不知道谁调用的（设置this给谁）。在你bind之前运行时是不会知道的。KO默认情况下设置this对象是view model，但你可以用bind语法重定义它。
+        
+        
+        
+        -->
+
+</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>background-origin</title>
+    <style type="text/css">
+        .code
+        {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .index {
+            width: 1000px;
+            margin: 0 auto;
+            height: 200px;
+            background-image: url(../image/feng.jpg);
+            background-origin: border-box;
+            -webkit-background-origin:border-box;
+            background-repeat: no-repeat;
+            border: 1px red solid;
+        }
+        .index2
+        {
+            padding-top: 20px;
+            width: 1000px;
+            margin: 0 auto;
+             height: 200px;
+            background-image: url(../image/feng.jpg);
+            background-origin: padding-box;
+            -webkit-background-origin: padding-box;
+            background-repeat: no-repeat;
+              border: 1px red solid;
+        }
+          .index3
+        {
+            padding-top: 20px;
+            width: 1000px;
+            margin: 0 auto;
+             height: 200px;
+            background-image: url(../image/feng.jpg);
+            background-origin:content-box;
+             -webkit-background-origin:content-box;/* Safari */
+            background-repeat: no-repeat;
+              border: 1px red solid;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="code">
+        <pre> 
+        语法：
+        background-origin ： border | padding | content
+
+        取值：
+        border：
+        从border区域开始显示背景。
+        padding：
+        从padding区域开始显示背景。
+        content：
+        从content区域开始显示背景。
+</pre>
+    </div>
+    
+    <div class="index">
+        <br/>
+           background-origin: border-box;
+        <br/>
+
+    </div>
+    
+     <div class="index2">
+        <br/>
+           background-origin: padding-box;
+        <br/>
+
+    </div>
+    
+    
+    <div class="index3">
+        <br/>
+        background-origin:content-box;
+        <br/>
+         
+    </div> 
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+   
+
+    $(function () { 
+
+            var ClickCounterViewModel = function () { 
+                this.numberOfClicks = ko.observable(0);
+
+                this.registerClick = function () {
+                    this.numberOfClicks(this.numberOfClicks() + 1);
+                };
+
+                this.resetClicks = function () {
+                    this.numberOfClicks(0);
+                };
+
+                this.hasClickedTooManyTimes = ko.computed(function () {
+                    return this.numberOfClicks() >= 3;
+                }, this);
+            };
+
+            ko.applyBindings(new ClickCounterViewModel());
+        
+        });
+
+    </script>
+</head>
+<body>
+    
+    <div>You've clicked <span data-bind='text: numberOfClicks'>&nbsp;</span> times</div>
+ 
+<button data-bind='click: registerClick, disable: hasClickedTooManyTimes'>Click me</button>
+ 
+<div data-bind='visible: hasClickedTooManyTimes'>
+    That's too many clicks! Please stop before you wear out your fingers.
+    <button data-bind='click: resetClicks'>Reset clicks</button>
+</div>
+
+</body>
+</html>

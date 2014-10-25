@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="../jquery/jquery.tmpl.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+    <style type="text/css">    
+        body
+        {
+            font-family: arial;
+            font-size: 14px;
+        }
+        .liveExample
+        {
+            padding: 1em;
+            background-color: #EEEEDD;
+            border: 1px solid #CCC;
+            max-width: 655px;
+        }
+        .liveExample input
+        {
+            font-family: Arial;
+        }
+        .liveExample b
+        {
+            font-weight: bold;
+        }
+        .liveExample p
+        {
+            margin-top: 0.9em;
+            margin-bottom: 0.9em;
+        }
+        .liveExample select[multiple]
+        {
+            width: 100%;
+            height: 8em;
+        }
+        .liveExample h2
+        {
+            margin-top: 0.4em;
+        }
+        
+        .planet
+        {
+            background-color: #AAEECC;
+            padding: 0.25em;
+            border: 1px solid silver;
+            margin-bottom: 0.5em;
+            font-size: 0.75em;
+        }
+        .planet.rock
+        {
+            background-color: #EECCAA;
+        }
+        .liveExample input
+        {
+            margin: 0 0.3em 0 1em;
+        }
+        
+        li
+        {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>
+        Planets</h2>
+    <p>
+        <label>
+            <input type="checkbox" data-bind="checked: displayAdvancedOptions" />
+            Display advanced options
+        </label>
+    </p>
+    <p data-bind="fadeVisible: displayAdvancedOptions">
+        Show:
+        <label>
+            <input type="radio" value="all" data-bind="checked: typeToShow" />All</label>
+        <label>
+            <input type="radio" value="rock" data-bind="checked: typeToShow" />Rocky planets</label>
+        <label>
+            <input type="radio" value="gasgiant" data-bind="checked: typeToShow" />Gas giants</label>
+    </p>
+    <div data-bind='template: { name: "planetsTemplate",
+                            foreach: planetsToShow,
+                            beforeRemove: function(elem) { $(elem).slideUp(function() { $(elem).remove(); }) },
+                            afterAdd: function(elem) { $(elem).hide().slideDown() } }'>
+    </div>
+    <script type="text/html" id="planetsTemplate">
+    <div class="planet ${ type }">${ name }</div>
+    </script>
+    <p data-bind="fadeVisible: displayAdvancedOptions">
+        <button data-bind='click: function() { addPlanet("rock") }'>
+            Add rocky planet</button>
+        <button data-bind='click: function() { addPlanet("gasgiant") }'>
+            Add gas giant</button>
+    </p>
+    <script type="text/javascript">
+
+        var viewModel = {
+            planets: ko.observableArray([
+        { name: "Mercury", type: "rock" },
+        { name: "Venus", type: "rock" },
+        { name: "Earth", type: "rock" },
+        { name: "Mars", type: "rock" },
+        { name: "Jupiter", type: "gasgiant" },
+        { name: "Saturn", type: "gasgiant" },
+        { name: "Uranus", type: "gasgiant" },
+        { name: "Neptune", type: "gasgiant" },
+        { name: "Pluto", type: "rock" }
+    ]),
+
+            typeToShow: ko.observable("all"),
+            displayAdvancedOptions: ko.observable(false),
+
+            addPlanet: function (type) { this.planets.push({ name: "New planet", type: type }); }
+        };
+
+        viewModel.planetsToShow = ko.dependentObservable(function () {
+            // Represents a filtered list of planets
+            // i.e., only those matching the "typeToShow" condition
+
+            var desiredType = this.typeToShow();
+
+            if (desiredType == "all")
+                return this.planets();
+
+            return ko.utils.arrayFilter(this.planets(), function (planet) {
+                return planet.type == desiredType;
+            });
+        } .bind(viewModel));
+
+        // Here's a custom Knockout binding that makes elements shown/hidden via jQuery's fadeIn()/fadeOut() methods
+        // Could be stored in a separate utility library
+
+        ko.bindingHandlers.fadeVisible = {
+            init: function (element, valueAccessor) {
+                // Initially set the element to be instantly visible/hidden depending on the value
+                var value = valueAccessor();
+
+                $(element).toggle(ko.utils.unwrapObservable(value));
+                // Use "unwrapObservable" so we can handle values that may or may not be observable
+            },
+
+            update: function (element, valueAccessor) {
+                // Whenever the value subsequently changes, slowly fade the element in or out
+                var value = valueAccessor();
+                ko.utils.unwrapObservable(value) ? $(element).fadeIn() : $(element).fadeOut();
+            }
+        };
+
+        ko.applyBindings(viewModel);
+
+    </script>
+</body>
+</html>

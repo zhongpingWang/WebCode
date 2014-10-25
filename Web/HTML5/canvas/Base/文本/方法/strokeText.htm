@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <pre>
+                浏览器支持
+                Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 strokeText() 方法。
+                注释：Internet Explorer 8 或更早的浏览器不支持 &lt;canvas> 元素。
+                定义和用法
+                strokeText() 方法在画布上绘制文本（没有填色）。文本的默认颜色是黑色。
+                提示：请使用 font 属性来定义字体和字号，并使用 strokeStyle 属性以另一种颜色/渐变来渲染文本。
+                JavaScript 语法：
+                context.strokeText(text,x,y,maxWidth);
+                参数值
+                参数	描述
+                text	规定在画布上输出的文本。
+                x	开始绘制文本的 x 坐标位置（相对于画布）。
+                y	开始绘制文本的 y 坐标位置（相对于画布）。
+                maxWidth	可选。允许的最大文本宽度，以像素计。
+
+</pre>
+
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+
+    ctx.font = "20px Georgia";
+    ctx.strokeText("Hello World!", 10, 50);
+
+    ctx.font = "30px Verdana";
+    // Create gradient
+    var gradient = ctx.createLinearGradient(0, 0, c.width, 0);
+    gradient.addColorStop("0", "magenta");
+    gradient.addColorStop("0.5", "blue");
+    gradient.addColorStop("1.0", "red");
+    // Fill with gradient
+    ctx.strokeStyle = gradient;
+    ctx.strokeText("w3school.com.cn", 10, 90);
+    ctx.strokeText("w3school.com.cn", 10, 130,200);
+
+</script>
+</body>
+</html>

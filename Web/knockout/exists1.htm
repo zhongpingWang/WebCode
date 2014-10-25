@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+      <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+        <script src="../jquery/jquery.tmpl.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+</head>
+<body>
+   
+        New item:
+        <input data-bind='value: itemToAdd, valueUpdate: "afterkeydown"' />
+        <button type="submit" data-bind="click:addItem,enable: itemToAdd().length > 0">Add</button>
+        <p>Your items:</p>
+        <select multiple="multiple" width="50" data-bind="options: items"> </select>
+    
+    <script type="text/javascript">
+
+        var viewModel = {};
+        viewModel.items = ko.observableArray(["Alpha", "Beta", "Gamma"]);
+        viewModel.itemToAdd = ko.observable("");
+        viewModel.addItem = function () {
+            if (viewModel.itemToAdd() != "") {
+                viewModel.items.push(viewModel.itemToAdd());
+                // Adds the item. Writing to the "items" observableArray causes any associated UI to update.
+
+                viewModel.itemToAdd("");
+                // Clears the text box, because it's bound to the "itemToAdd" observable
+            }
+        }
+
+        ko.applyBindings(viewModel);
+
+    </script>
+</body>
+</html>

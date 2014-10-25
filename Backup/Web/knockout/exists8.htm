@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="../jquery/jquery.tmpl.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+    <script src="../jquery/jquery.validate.js" type="text/javascript"></script>
+</head>
+<body>
+    <form action="/someServerSideHandler">
+    <p>
+        You have asked for <span data-bind="text: gifts().length">&nbsp;</span> gift(s)</p>
+    <table data-bind="visible: gifts().length > 0">
+        <thead>
+            <tr>
+                <th>
+                    Gift name
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody data-bind='template: { name: "giftRowTemplate", foreach: gifts }'>
+        </tbody>
+    </table>
+    <button data-bind="click: addGift">
+        Add Gift</button>
+    <button data-bind="enable: gifts().length > 0" type="submit">
+        Submit</button>
+    </form>
+    <script type="text/html" id="giftRowTemplate">
+        <tr>
+            <td><input class="required" data-bind="value: name, uniqueName: true"/></td>
+
+            <td><input class="required number" data-bind="value: price, uniqueName: true"/></td>
+            
+            <td><a href="#" data-bind="click: function() { viewModel.removeGift($data) }">Delete</a></td>  
+        </tr>
+
+    </script>
+    <script type="text/javascript">
+        var viewModel = {
+
+            gifts: ko.observableArray([{ name: "", price: ""}]),
+
+            addGift: function () {
+                this.gifts.push({ name: "", price: "" });
+            },
+
+            removeGift: function (gift) {
+                this.gifts.remove(gift);
+            },
+
+            save: function (form) { 
+                var s = ko.utils.stringifyJson(this.gifts);
+                console.log(s);
+                alert("Could now transmit to server: " + ko.utils.stringifyJson(this.gifts)); 
+                // To transmit to server, write this: ko.utils.postJson($("form")[0], this.gifts);
+            }
+        }; 
+        ko.applyBindings(viewModel);
+
+        $("form").validate({ submitHandler: function () { viewModel.save() } });
+    </script>
+</body>
+</html>

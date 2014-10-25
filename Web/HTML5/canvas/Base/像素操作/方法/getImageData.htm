@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <pre>
+                浏览器支持
+                Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 getImageData() 方法。
+                注释：Internet Explorer 8 或更早的浏览器不支持 &lt;canvas> 元素。
+                定义和用法
+                getImageData() 方法返回 ImageData 对象，该对象拷贝了画布指定矩形的像素数据。
+                对于 ImageData 对象中的每个像素，都存在着四方面的信息，即 RGBA 值：
+                R - 红色 (0-255)
+                G - 绿色 (0-255)
+                B - 蓝色 (0-255)
+                A - alpha 通道 (0-255; 0 是透明的，255 是完全可见的)
+                color/alpha 以数组形式存在，并存储于 ImageData 对象的 data 属性中。
+                提示：在操作完成数组中的 color/alpha 信息之后，您可以使用 putImageData() 方法将图像数据拷贝回画布上。
+                例子：
+                以下代码可获得被返回的 ImageData 对象中第一个像素的 color/alpha 信息：
+                red=imgData.data[0];
+                green=imgData.data[1];
+                blue=imgData.data[2];
+                alpha=imgData.data[3];
+                亲自试一试
+                提示：您也可以使用 getImageData() 方法来反转画布上某个图像的每个像素的颜色。
+                使用该公式遍历所有的像素，并改变其颜色值：
+                red=255-old_red;
+                green=255-old_green;
+                blue=255-old_blue;
+                （请见下面的“亲自试一试”实例。）
+                JavaScript 语法
+                var imgData=context.getImageData(x,y,width,height);
+                参数值
+                参数	描述
+                x	开始复制的左上角位置的 x 坐标。
+                y	开始复制的左上角位置的 y 坐标。
+                width	将要复制的矩形区域的宽度。
+                height	将要复制的矩形区域的高度。
+</pre>
+    <canvas id="myCanvas" width="300" height="150" style="border: 1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+    <script>
+
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.fillStyle = "green";
+        ctx.fillRect(10, 10, 50, 50);
+
+        var imgData = ctx.getImageData(30, 30, 50, 50);
+        red = imgData.data[0];
+        green = imgData.data[1];
+        blue = imgData.data[2];
+        alpha = imgData.data[3];
+        alert(red + " " + green + " " + blue + " " + alpha);
+
+    </script>
+    <canvas id="myCanvas2" width="300" height="150" style="border: 1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+    <script>
+        var c = document.getElementById("myCanvas2");
+        var ctx = c.getContext("2d");
+        ctx.fillStyle = "green";
+        ctx.fillRect(10, 10, 50, 50);
+
+        function copy() {
+            var imgData = ctx.getImageData(0, 10, 50, 50);
+            ctx.putImageData(imgData, 100, 70);
+        }
+    </script>
+    <button onclick="copy()">
+        复制</button>
+</body>
+</html>

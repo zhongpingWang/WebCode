@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <pre>
+            定义和用法
+            fillStyle 属性设置或返回用于填充绘画的颜色、渐变或模式。
+            默认值：	#000000
+            JavaScript 语法：	context.fillStyle=color|gradient|pattern;
+            属性值
+            值	描述
+            color	指示绘图填充色的 CSS 颜色值。默认值是 #000000。
+            gradient	用于填充绘图的渐变对象（线性或放射性）
+            pattern	用于填充绘图的 pattern 对象 
+            
+            
+            如何设置canvas 的style 的width  那么背景 会被拉大
+</pre>
+    <canvas id="myCanvas" style="width: 500px; border: 1px red solid;"></canvas>
+    <canvas id="myCanvas2" style="width: 500px; border: 1px red solid;"></canvas>
+    <img id="niu" src="image/niu.gif" /><img id="niu2" src="image/lamp.gif" />
+    <canvas id="myCanvas3" width="1000px" height="200px" style="border: 1px red solid;"></canvas>
+    <script type="text/javascript">
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.fillStyle = "red";
+        ctx.fillRect(20, 20, 150, 100);
+
+        var c = document.getElementById("myCanvas2");
+        var ctx = c.getContext("2d");
+        var my_gradient = ctx.createLinearGradient(0, 0, 170, 0);
+        my_gradient.addColorStop(0, "black");
+        my_gradient.addColorStop(0.5, "red");
+        my_gradient.addColorStop(1, "white");
+        ctx.fillStyle = my_gradient;
+        ctx.fillRect(20, 20, 150, 100);
+
+
+
+        var c = document.getElementById("myCanvas3");
+        var ctx = c.getContext("2d");
+        ctx.clearRect(0, 0, c.width, c.height);
+        
+        var img = new Image();
+        img.src = "image/niu.gif";
+        //var img = document.getElementById("niu");
+        img.onload = function () {
+            var pat = ctx.createPattern(img, "repeat");
+            ctx.rect(0, 0, 1000, 200);
+            ctx.fillStyle = pat;
+            ctx.fill();
+        }  
+        
+    </script>
+</body>
+</html>

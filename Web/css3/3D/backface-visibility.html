@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style>
+div
+{
+position:relative;
+height:60px;
+width:60px;
+border:1px solid #000;
+background-color:yellow;
+transform:rotateY(180deg);
+-webkit-transform:rotateY(180deg); /* Chrome and Safari */
+-moz-transform:rotateY(180deg); /* Firefox */
+}
+#div1
+{
+-webkit-backface-visibility:hidden;
+-moz-backface-visibility:hidden;
+-ms-backface-visibility:hidden;
+}
+#div2
+{
+-webkit-backface-visibility:visible;
+-moz-backface-visibility:visible;
+-ms-backface-visibility:visible;
+}
+</style>
+</head>
+<body>
+    <pre>
+        浏览器支持
+            目前所有浏览器都不支持 backface-visibility 属性。
+            Internet Explorer 10 支持替代的 -ms-backface-visibility 属性。
+            Firefox 支持替代的 -moz-backface-visibility 属性。
+            Safari 和 Chrome 支持替代的 -webkit-backface-visibility 属性。
+            注释：Internet Explorer 9 及更早的浏览器不支持 -ms-backface-visibility 属性。
+            定义和用法
+            backface-visibility 属性定义当元素不面向屏幕时是否可见。
+            如果在旋转元素不希望看到其背面时，该属性很有用。
+            默认值：	visible
+            继承性：	no
+            版本：	CSS3
+            JavaScript 语法：	object.style.backfaceVisibility="hidden"
+            语法
+            backface-visibility: visible|hidden;
+            值	描述
+            visible	背面是可见的。
+            hidden	背面是不可见的。
+
+
+    </pre>
+
+    <p>本例有两个 div 元素，均旋转 180 度，背向用户。</p>
+
+<p>第一个 div 元素的 backface-visibility 属性设置为 "hidden"，所以应该是不可见的。</p>
+
+<div id="div1">DIV 1</div>
+
+<div id="div2">DIV 2</div>
+
+<p><b>注释：</b>本例只在 Internet Explorer 10、Firefox、Chrome 以及 Safari 中有效。</p>
+</body>
+</html>

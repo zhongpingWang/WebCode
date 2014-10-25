@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        .code
+        {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .index
+        {
+            border: 1px red solid;
+            width: 299px;
+            height: 240px;
+            background-image: url(../image/feng.jpg);
+            background-size: 100% 90%;
+        }
+        
+        .index2
+        {
+            border: 1px red solid;
+            width: 299px;
+            height: 240px;
+            background-image: url(../image/feng.jpg);
+            background-size: cover;
+        }
+        
+        .index3
+        {
+            border: 1px red solid;
+            width: 299px;
+            height: 240px;
+            background-image: url(../image/feng.jpg);
+            background-size: contain;
+        }
+        
+        .index4
+        {
+            border: 1px red solid;
+            width: 299px;
+            height: 240px;
+            background-image: url(../image/feng.jpg);
+            background-size: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="code">
+        <pre>
+        语法： background-size ：[ &lt;length> | &lt;percentage> | auto ]{1,2} | cover | contain
+        length	
+        设置背景图像的高度和宽度。
+        第一个值设置宽度，第二个值设置高度。
+        如果只设置一个值，则第二个值会被设置为 "auto"。
+      
+        percentage	
+        以父元素的百分比来设置背景图像的宽度和高度。
+        第一个值设置宽度，第二个值设置高度。
+        如果只设置一个值，则第二个值会被设置为 "auto"。
+        
+        cover	
+        把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。
+        背景图像的某些部分也许无法显示在背景定位区域中。
+        
+        contain	把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域。
+      </pre>
+    </div>
+    <div class="index">
+        background-size: 100% 90%;
+    </div>
+    <br/><br/>
+    <div class="index2">
+    </div>
+    <br/><br/>
+    <div class="index3">
+    </div>
+    <br/><br/>
+    <div class="index4">
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+     <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+</head>
+<body>
+<h3>All tasks (<span data-bind="text: tasks().length"> </span>)</h3>
+<ul data-bind="foreach: tasks">
+    <li>
+        <label>
+            <input type="checkbox" data-bind="checked: done" />
+            <span data-bind="text: title"> </span>
+        </label>
+    </li>
+</ul>
+ 
+<h3>Done tasks (<span data-bind="text: doneTasks().length"> </span>)</h3>
+    <ul data-bind="foreach: doneTasks">
+        <li data-bind="text: title"></li>
+    </ul>
+    
+    
+    <script type="text/javascript">
+        ko.observableArray.fn.filterByProperty = function (propName, matchValue) {
+            return ko.computed(function () {
+                var allItems = this(), matchingItems = [];
+                for (var i = 0; i < allItems.length; i++) {
+                    var current = allItems[i];
+                    if (ko.utils.unwrapObservable(current[propName]) === matchValue)
+                        matchingItems.push(current);
+                }
+                return matchingItems;
+            }, this);
+        }
+
+
+
+
+
+        function Task(title, done) {
+            this.title = ko.observable(title);
+            this.done = ko.observable(done);
+        }
+        function AppViewModel() {
+            this.tasks = ko.observableArray([new Task('Find new desktop background', true),new Task('Put shiny stickers on laptop', false),new Task('Request more reggae music in the office', true)]);
+            // Here's where we use the custom function
+            //  this.doneTasks = this.tasks.filterByProperty("done", true);
+            this.doneTasks = ko.computed(function () {
+                var all = this.tasks(), done = [];
+                for (var i = 0; i < all.length; i++)
+                    if (all[i].done())
+                        done.push(all[i]);
+                return done;
+            }, this);
+        }
+        ko.applyBindings(new AppViewModel());
+    </script>
+</body>
+</html>

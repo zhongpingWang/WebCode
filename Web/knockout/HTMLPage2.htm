@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+      <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+    <script src="../jquery/jquery.tmpl.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div data-bind="slideVisible: giftWrap, slideDuration:600">You have selected the option</div>
+<label><input type="checkbox" data-bind="checked: giftWrap" /> Gift wrap</label>
+ 
+    <script type="text/javascript">
+
+        ko.bindingHandlers.slideVisible = {
+
+            init: function () {
+                alert("d");
+            },
+
+            update: function (element, valueAccessor, allBindingsAccessor) {
+                // First get the latest data that we're bound to
+                var value = valueAccessor(), allBindings = allBindingsAccessor();
+                // Next, whether or not the supplied model property is observable, get its current value
+                var valueUnwrapped = ko.unwrap(value);
+                // Grab some more data from another binding property
+                var duration = allBindings.slideDuration || 400; // 400ms is default duration unless otherwise specified
+                // Now manipulate the DOM element
+                if (valueUnwrapped == true)
+                    $(element).slideDown(duration); // Make the element visible
+                else
+                    $(element).slideUp(duration); // Make the element invisible
+            }
+        };
+
+
+
+
+
+
+        var viewModel = {
+            giftWrap: ko.observable(true)
+        };
+        ko.applyBindings(viewModel);
+    </script>
+</body>
+</html>

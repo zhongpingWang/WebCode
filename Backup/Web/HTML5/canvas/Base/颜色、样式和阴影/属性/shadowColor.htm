@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <pre>
+            浏览器支持
+            Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 shadowColor 属性。
+            注释：Internet Explorer 8 以及更早的版本不支持 <canvas> 元素。
+            定义和用法
+            shadowColor 属性设置或返回用于阴影的颜色。
+            注释：请将 shadowColor 属性与 shadowBlur 属性一起使用，来创建阴影。
+            提示：请通过使用 shadowOffsetX 和 shadowOffsetY 属性来调节阴影效果。
+            默认值：	#000000
+            JavaScript 语法：	context.shadowColor=color;
+            属性值
+            值	描述
+            color	用于阴影的 CSS 颜色值。默认值是 #000000。
+
+</pre>
+    <canvas id="myCanvas"></canvas>
+    <script type="text/javascript">
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.shadowBlur = 20;
+        ctx.shadowColor = "black";
+        ctx.fillStyle = "blue";
+        ctx.fillRect(20, 20, 100, 80);
+
+
+    </script>
+</body>
+</html>

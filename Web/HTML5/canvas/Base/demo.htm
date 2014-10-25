@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Canvas base</title>
+    <style type="text/css">
+        canvas
+        {
+            width: 300px;
+            height: 90px;
+            border: 1px #ccc solid;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        矩形
+        <canvas id="myCanvas"></canvas>
+    </div>
+    <div>
+        线
+        <canvas id="myCanvas2"></canvas>
+    </div>
+    <div>
+        ○
+        <canvas id="myCanvas3"></canvas>
+    </div>
+    <div>
+        渐变
+        <canvas id="myCanvas4"> Your browser does not support the canvas element.</canvas>
+    </div>
+    
+     <div>
+        渐变
+        <canvas id="myCanvas5"> Your browser does not support the canvas element.</canvas>
+    </div>
+    
+    
+
+
+    <script type="text/javascript">
+
+     
+
+        var c = document.getElementById("myCanvas");
+        var cxt = c.getContext("2d");
+        cxt.fillStyle = "#FF0000";
+        cxt.fillRect(0, 0, 150, 75);
+
+
+        var c = document.getElementById("myCanvas2");
+        var cxt = c.getContext("2d");
+        cxt.moveTo(10, 10);
+        cxt.lineTo(150, 50);
+        cxt.lineTo(10, 50);
+        cxt.stroke();
+
+
+        var c = document.getElementById("myCanvas3");
+        var cxt = c.getContext("2d");
+        cxt.fillStyle = "#FF0000";
+        cxt.beginPath();
+        cxt.arc(70, 18, 15, 0, Math.PI * 2, true);
+        cxt.closePath();
+        cxt.fill();
+
+
+        var c = document.getElementById("myCanvas4");
+        var cxt = c.getContext("2d");
+        var grd = cxt.createLinearGradient(0, 0, 175, 50);
+        grd.addColorStop(0, "#FF0000");
+        grd.addColorStop(1, "#00FF00");
+        cxt.fillStyle = grd;
+        cxt.fillRect(0, 0, 175, 50);
+
+
+        var c = document.getElementById("myCanvas5");
+        var cxt = c.getContext("2d");
+        var img = new Image();
+        img.src = "border.png";
+        img.onload = function () {  //必须等图片加载完 否则加载不出图片
+            cxt.drawImage(img, 0, 0);
+
+//            context.fillStyle = "#EEEEEE";
+//            context.fillRect(0, 0, theCanvas.width, theCanvas.height)
+//            //display image107*86
+//            context.drawImage(imgmain, 0, 0);
+//            context.drawImage(imgmain, 120, 0);
+//            //resize image
+//            context.drawImage(imgmain, 0, 90, 107, 86);
+//            context.drawImage(imgmain, 120, 90, 53, 43);
+//            context.drawImage(imgmain, 190, 90, 26, 21);
+//            //part of image
+//            context.drawImage(imgmain, 0, 0, 107, 86, 0, 180, 107, 86);
+//            context.drawImage(imgmain, 0, 0, 57, 86, 120, 180, 57, 86);
+//            context.drawImage(imgmain, 50, 0, 57, 86, 190, 180, 57, 86);
+//            context.drawImage(imgmain, 0, 0, 57, 43, 260, 180, 57, 43);
+//            context.drawImage(imgmain, 50, 43, 57, 43, 330, 223, 57, 43);
+        }   
+    </script>
+</body>
+</html>

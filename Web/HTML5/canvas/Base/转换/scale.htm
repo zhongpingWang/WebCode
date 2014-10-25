@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <pre>
+        浏览器支持
+        Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 scale() 方法。
+        注释：Internet Explorer 8 或更早的浏览器不支持 &lt;canvas> 元素。
+        定义和用法
+        scale() 方法缩放当前绘图，更大或更小。
+        注释：如果您对绘图进行缩放，所有之后的绘图也会被缩放。定位也会被缩放。如果您 scale(2,2)，那么绘图将定位于距离画布左上角两倍远的位置。
+        JavaScript 语法：
+        context.scale(scalewidth,scaleheight);
+        参数值
+        参数	描述
+        scalewidth	缩放当前绘图的宽度 (1=100%, 0.5=50%, 2=200%, 依次类推)
+        scaleheight	缩放当前绘图的高度 (1=100%, 0.5=50%, 2=200%, etc.)
+</pre>
+
+<canvas id="myCanvas" width="300" height="170" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.strokeRect(5, 5, 25, 15);
+    ctx.scale(2, 2);
+    ctx.strokeRect(5, 5, 25, 15);
+    ctx.scale(2, 2);
+    ctx.strokeRect(5, 5, 25, 15);
+    ctx.scale(2, 2);
+    ctx.strokeRect(5, 5, 25, 15);
+
+</script> 
+</body>
+</html>

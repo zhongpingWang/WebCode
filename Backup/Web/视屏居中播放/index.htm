@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        body{ padding: 0;margin: 0;}
+        #big{ width: 1000px;margin: 0 auto;}
+        #one {
+            
+        }
+        #two {
+            
+        }
+        #three {
+            position: relative;
+        }
+       img{ width: 300px;cursor: pointer;}
+       #homeVideo{ width: 1000px;height: 300px;border: 1px red solid;display: none;}
+    </style>
+</head>
+<body>
+    <div id="big">
+        <div id="Div1">
+            视屏一：
+            <div>
+                <img src="1.jpg" />
+            </div>
+        </div>
+        <div id="Div2">
+            视屏一：
+            <div>
+                <img src="1.jpg" />
+            </div>
+        </div>
+        <div id="Div3">
+            视屏一：
+            <div>
+                <img src="1.jpg" />
+            </div>
+        </div>
+        <div id="one">
+            视屏一：
+            <div>
+                <img src="1.jpg" />
+            </div>
+        </div>
+        <div id="two">
+            视屏2：
+            <div>
+                <img src="1.jpg" />
+            </div>
+        </div>
+        <div id="three">
+            视屏3：
+            <div>
+                <img id="play" src="1.jpg" />
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    $("#play").click(function () {
+
+                        var winHieght = parseInt($(window).height()); //浏览器 高度
+                        var scrollTop = parseInt($(window).scrollTop()); //滚动条高度
+                        var elHeight = $("#homeVideo").height();
+                        var elOffsetTop = $("#play").offset().top;
+
+                        var lastTop = (winHieght - elHeight) / 2;
+
+                        var diffTop = elOffsetTop-lastTop; //scrollTop
+
+
+
+                        $("#homeVideo").html(' <iframe src="http://fast.wistia.net/embed/iframe/9yc65z1xsd?playerColor=3399ff&version=v1&videoHeight=402&videoWidth=715&volumeControl=true&autoPlay=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="1000" height="300"></iframe>');
+                        $("#homeVideo").slideDown();
+
+                        $("#play").hide();
+                        if (diffTop>0) {
+                            $(window).scrollTop(diffTop);
+                        }
+                       
+                    });
+                });
+            </script>
+            <div id="homeVideo">
+               
+            </div>
+        </div>
+        <div id="Div4">
+            视屏一：
+            <div>
+                <img src="1.jpg" />
+            </div>
+        </div>
+        <div id="Div5">
+            视屏一：
+            <div>
+                <img src="1.jpg" />
+            </div>
+        </div>
+        <div id="Div6">
+            视屏一：
+            <div>
+                <img src="1.jpg" />
+            </div>
+        </div>
+
+    </div>
+    
+
+
+</body>
+</html>

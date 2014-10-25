@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <pre>
+    浏览器支持
+            Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 fill() 方法。
+            注释：Internet Explorer 8 或更早的浏览器不支持 &lt;canvas> 元素。
+            定义和用法
+            fill() 方法填充当前的图像（路径）。默认颜色是黑色。
+            提示：请使用 fillStyle 属性来填充另一种颜色/渐变。
+            注释：如果路径未关闭，那么 fill() 方法会从路径结束点到开始点之间添加一条线，以关闭该路径，然后填充该路径。
+            JavaScript 语法：
+            context.fill();
+</pre>
+
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.rect(20, 20, 150, 100);
+    ctx.fillStyle = "green";
+    ctx.fill();
+
+</script> 
+</body>
+</html>

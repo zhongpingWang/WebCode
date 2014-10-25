@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+    <body>
+        <pre>
+                浏览器支持
+                Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 createRadialGradient() 方法。
+                注释：Internet Explorer 8 或更早的浏览器不支持 &lt;canvas> 元素。
+                定义和用法
+                createLinearGradient() 方法创建放射状/圆形渐变对象。
+                渐变可用于填充矩形、圆形、线条、文本等等。
+                提示：请使用该对象作为 strokeStyle 或 fillStyle 属性的值。
+                提示：请使用 addColorStop() 方法规定不同的颜色，以及在 gradient 对象中的何处定位颜色。
+                JavaScript 语法：
+                context.createRadialGradient(x0,y0,r0,x1,y1,r1);
+                参数值
+                参数	描述
+                x0	渐变的开始圆的 x 坐标
+                y0	渐变的开始圆的 y 坐标
+                r0	开始圆的半径
+                x1	渐变的结束圆的 x 坐标
+                y1	渐变的结束圆的 y 坐标
+                r1	结束圆的半径
+</pre>
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var grd = ctx.createRadialGradient(75, 50, 5, 90, 60, 100);
+    grd.addColorStop(0, "red");
+    grd.addColorStop(1, "white");
+    ctx.fillStyle = grd;
+    ctx.fillRect(10, 10, 150, 100);
+
+</script>
+    </body>
+</html>

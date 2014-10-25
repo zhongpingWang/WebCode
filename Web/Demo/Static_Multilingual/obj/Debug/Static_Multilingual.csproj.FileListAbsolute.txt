@@ -1,0 +1,5 @@
+c:\users\user\documents\visual studio 2010\Projects\Static_Multilingual\Static_Multilingual\bin\Static_Multilingual.dll
+c:\users\user\documents\visual studio 2010\Projects\Static_Multilingual\Static_Multilingual\bin\Static_Multilingual.pdb
+c:\users\user\documents\visual studio 2010\Projects\Static_Multilingual\Static_Multilingual\obj\Debug\ResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2010\Projects\Static_Multilingual\Static_Multilingual\obj\Debug\Static_Multilingual.dll
+c:\users\user\documents\visual studio 2010\Projects\Static_Multilingual\Static_Multilingual\obj\Debug\Static_Multilingual.pdb

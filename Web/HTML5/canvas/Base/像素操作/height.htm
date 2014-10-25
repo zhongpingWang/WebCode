@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <pre>
+            浏览器支持
+            Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 height 属性。
+            注释：Internet Explorer 8 以及更早的版本不支持 &lt;canvas> 元素。
+            定义和用法
+            height 属性返回 ImageData 对象的高度，以像素计。
+            提示：请参阅 createImageData()、getImageData() 以及 putImageData() 方法，以获得更多关于 ImageData 对象的知识。
+            默认值：	#000000
+            JavaScript 语法：	imgData.height;
+</pre>
+
+
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var imgData = ctx.createImageData(100, 100);
+    alert("Height of imgData is: " + imgData.height);
+    for (var i = 0; i < imgData.data.length; i += 4) {
+        imgData.data[i + 0] = 255;
+        imgData.data[i + 1] = 0;
+        imgData.data[i + 2] = 0;
+        imgData.data[i + 3] = 255;
+    }
+    ctx.putImageData(imgData, 10, 10);
+
+</script>
+</body>
+</html>

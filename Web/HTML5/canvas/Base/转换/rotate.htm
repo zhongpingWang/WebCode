@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <pre>
+                浏览器支持
+                Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 rotate() 方法。
+                注释：Internet Explorer 8 或更早的浏览器不支持 &lt;canvas> 元素。
+                定义和用法
+                rotate() 方法旋转当前的绘图。
+                JavaScript 语法：
+                context.rotate(angle);
+                参数值
+                参数	描述
+                angle	
+                旋转角度，以弧度计。
+                如需将角度转换为弧度，请使用 degrees*Math.PI/180 公式进行计算。
+                举例：如需旋转 5 度，可规定下面的公式：5*Math.PI/180。
+</pre>
+
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.rotate(20 * Math.PI / 180);
+    ctx.fillRect(50, 20, 100, 50);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+</head>
+<body>
+    <div data-bind="allowBindings: true">
+        <!-- This will display Replacement, because bindings are applied -->
+        <div data-bind="text: 'Replacement'">
+            Original</div>
+    </div>
+
+    <div data-bind="allowBindings: false">
+        <!-- This will display Original, because bindings are not applied -->
+        <div data-bind="text: 'Replacement'">
+            Original</div>
+    </div>
+    <div data-bind="withProperties: { emotion: 'happy' }">
+    Today I feel <span data-bind="text: emotion"></span>. <!-- Displays: happy -->
+</div>
+<div data-bind="withProperties: { emotion: 'whimsical' }">
+    Today I feel <span data-bind="text: emotion"></span>. <!-- Displays: whimsical -->
+</div>
+
+    <script type="text/javascript">
+        ko.bindingHandlers.allowBindings = {
+            init: function (elem, valueAccessor) {
+                // Let bindings proceed as normal *only if* my value is false
+                var shouldAllowBindings = ko.utils.unwrapObservable(valueAccessor());
+                return { controlsDescendantBindings: !shouldAllowBindings };
+            }
+        };
+
+
+        ko.bindingHandlers.withProperties = {
+            init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+                // Make a modified binding context, with a extra properties, and apply it to descendant elements
+                var newProperties = valueAccessor(),
+            innerBindingContext = bindingContext.extend(newProperties);
+                ko.applyBindingsToDescendants(innerBindingContext, element);
+
+                // Also tell KO *not* to bind the descendants itself, otherwise they will be bound twice
+                return { controlsDescendantBindings: true };
+            }
+        };
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        .code
+        {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .index
+        {
+            width: 40px;
+            padding: 10px;
+            border-width: 0 14px;
+            -moz-border-image: url(../image/border_image_button.png) 0 14 0 14 round; /* 老版本的 Firefox */
+            -webkit-border-image: url(../image/border_image_button.png) 0 14 0 14 round; /* Safari */
+            -o-border-image: url(../image/border_image_button.png) 0 14 0 14 round; /* Opera */
+            border-image: url(../image/border_image_button.png) 0 14 0 14 round;
+        }
+        
+        .index2
+        {
+            border-width: 30px;
+            width: 1000px;
+            margin: 0 auto;
+            -moz-border-image: url(../image/border.png) 30 30 round; /* Old Firefox */
+            -webkit-border-image: url(../image/border.png) 30 30 round; /* Safari and Chrome */
+            -o-border-image: url(../image/border.png) 30 30 round; /* Opera */
+            border-image: url(../image/border.png) 30 30 round;
+        }
+        
+        .index3
+        {
+            border-width: 30px;
+            width: 1000px;
+            margin: 0 auto;
+            -moz-border-image: url(../image/border.png) 30 30 stretch; /* Old Firefox */
+            -webkit-border-image: url(../image/border.png) 30 30 stretch; /* Safari and Chrome */
+            -o-border-image: url(../image/border.png) 30 30 stretch; /* Opera */
+            border-image: url(../image/border.png) 30 30 stretch;
+        }
+        
+        .index4
+        {
+            border-width: 30px;
+            width: 1000px;
+            margin: 0 auto;
+            height: 100px;
+            -moz-border-image: url(../image/border.png) 30 30 round stretch; /* Old Firefox */
+            -webkit-border-image: url(../image/border.png) 30 30 round stretch; /* Safari and Chrome */
+            -o-border-image: url(../image/border.png) 30 30 round stretch; /* Opera */
+            border-image: url(../image/border.png) 30 30 round stretch;
+        }
+        
+        .border-image-btn
+        {
+            border: 18px solid green;
+            border-width: 0 18px;
+            -webkit-border-image: url("../image/button_sprite.png") 0 18 50 18 stretch;
+            -moz-border-image: url("../image/button_sprite.png") 0 18 50 18 stretch;
+            -o-border-image: url("../image/button_sprite.png") 0 18 50 18 stretch;
+            border-image: url("../image/button_sprite.png") 0 18 50 18 stretch;
+            padding: 13px 10px 17px;
+            font-size: 16px;
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+            line-height: 15px;
+        }
+        
+        
+        .border-image-btn:hover
+        {
+            -webkit-border-image: url("../image/button_sprite.png") 50 18 0 18;
+            -moz-border-image: url("../image/button_sprite.png") 50 18 0 18;
+            -o-border-image: url("../image/button_sprite.png") 50 18 0 18;
+            border-image: url("../image/button_sprite.png") 50 18 0 18;
+            color: #000;
+            border-color: yellow;
+            text-decoration: none;
+        }
+        
+        .border_image
+        {
+            width: 100px;
+            -moz-border-image: url(../image/rounded_corner.png) 20/10px;
+            -webkit-border-image: url(../image/rounded_corner.png) 20/10px;
+            border: double gray 10px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="code">
+        <pre>
+
+                语法：
+                border-image ： none |
+                &lt;image> [ &lt;number> | &lt;percentage>]{1,4} [ / &lt;border-width>{1,4} ]? [ stretch | repeat | round ]{0,2}
+                相关属性 ： border-image：border-top-image , border-right-image , border-bottom-image , border-left-image
+　　　　　　                border-corner-image：border-top-left-image , border-top-right-image , border-bottom-left-image , border-bottom-right-image
+                取值：
+                none：
+                默认值。无背景图。 
+                &lt;image>：
+                使用绝对或相对 url 地址指定背景图像。
+                &lt;number>：
+                边框宽度用固定像素值表示。
+                &lt;percentage>：
+                边框宽度用百分比表示。
+                [ stretch | repeat | round ]：
+                拉伸 | 重复 | 平铺 (其中stretch是默认值。)
+</pre>
+    </div>
+    <div class="index">
+        Search
+    </div>
+    <img src="../image/border_image_button.png" /><img src="../image/border.png" />
+    <div class="index2">
+        border-image: url(../image/border.png) 30 30 round;
+    </div>
+    <div class="index3">
+        border-image: url(../image/border.png) 30 30 stretch;
+    </div>
+    <div class="index4">
+        border-image: url(../image/border.png) 30 30 round stretch;
+    </div>
+    <br />
+    <br />
+    <a href="###" class="border-image-btn">Border-image Button</a>
+    <div class="border_image">
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+      <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="../jquery/jquery.tmpl.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+</head>
+<body>
+    
+    <div data-bind='template: "peopleTemplate"'>
+</div>
+    <label>
+        <input type="checkbox" data-bind="checked: showRenderTimes"/>
+        Show render times</label>
+        
+        
+        <span data-bind="click:update">update</span>
+        
+
+    <script type="text/html" id="peopleTemplate">
+        <h2>People</h2>
+        <ul>
+            {{each people}}
+            <li>
+                <div>
+                    ${ name } has <span data-bind="text: children().length">&nbsp;</span> children:
+                    <a href="#" data-bind="click: addChild ">Add child</a>
+                    <span class="renderTime" data-bind="visible: showRenderTimes">
+                        (person rendered at <span data-bind="text: new Date().getSeconds()"></span>)
+                    </span>
+                </div>
+                <div data-bind='template: { name: "childrenTemplate", data: children }'></div>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+
+<script type="text/html" id="childrenTemplate">
+    <ul>
+        {{each $data}}
+            <li>
+                ${ this }
+                <span class="renderTime" data-bind="visible: viewModel.showRenderTimes">
+                    (child rendered at <span data-bind="text: new Date().getSeconds()"></span>)
+               </span>
+           </li>
+        {{/each}}
+</ul>
+</script>
+
+
+
+    <script type="text/javascript">
+
+        var person = function (name, children) {
+            this.name = name;
+            this.children = ko.observableArray(children);
+
+            this.addChild = function () {
+                this.children.push("New child");
+            } .bind(this);
+        }
+
+        // The view model is an abstract description of the state of the UI, but without any knowledge of the UI technology (HTML)
+
+        var viewModel = {
+            people: [
+        new person("Annabelle", ["Arnie", "Anders", "Apple"]),
+        new person("Bertie", ["Boutros-Boutros", "Brianna", "Barbie", "Bee-bop"]),
+        new person("Charles", ["Cayenne", "Cleopatra"])
+    ],
+            showRenderTimes: ko.observable(false),
+
+            update: function () {
+                this.people[0].children()[0] = "123456789876543234567890-09876543";
+
+            }
+        };
+
+        ko.applyBindings(viewModel);
+
+
+    </script>
+
+</body>
+</html>

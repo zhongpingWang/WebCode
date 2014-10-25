@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>background-clip</title>
+    <style type="text/css">
+        .code
+        {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .index {
+            width: 1000px;
+            margin: 0 auto;
+            height: 400px;
+            background-image: url(../image/feng.jpg);
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="code">
+        <pre>
+            语法：
+            background-clip ： border-box | padding-box | content-box | no-clip
+ 
+            取值：
+            border-box：
+            从border区域向外裁剪背景。
+            padding-box：
+            从padding区域向外裁剪背景。
+            content-box：
+            从content区域向外裁剪背景。
+            no-clip：
+            从border区域向外裁剪背景。
+            
+            
+            对于 background-clip：
+            如果是 padding 值，则 background 忽略 padding边缘，border 是透明的。如果是 border 值，则background 包括 border 区域。如果 background-image 图片有多个，对应的 background-clip 值之间用逗号分隔。
+            对于 background-origin：
+            如果是 padding 值，则 position 相对于 padding 边缘（"0 0" 为 padding 边缘的左上角，而 "100% 100%" 为右下角）。如果是 border 值，则意味着相对 border 边缘。而 border 值则相对于内容边缘。与 background-clip 相同，多个值也用逗号分隔。如果 background-clip 是 padding 值，background-origin 是 border 值，并且 background-position 是 "top left"（默认初始值），则背景图左上角将会被截取掉部分。
+            这两个属性仅从 CSS3 才出现，在未使用该属性 background module 中的默认表现又如何呢？
+            background-clip 默认类似于 background-clip:border。
+            background-origin 默认类似于 background-origin:padding。
+            但 IE 又是特例 （It sucks）。
+            在 IE6 、IE7 中，一般元素（button 等除外）的背景相当于：background-clip:border; background-origin:border;
+            而 hasLayout 的元素（加上 button 等）的背景则相当于：background-clip:padding; background-origin:padding;
+            这一对 CSS3 属性已在 Mozilla, Safari 3 和 Konqueror 等浏览器中实现，不过都是通过其私有属性的表达方式。
+</pre>
+    </div>
+     
+    <div class="index"></div>
+    
+
+</body>
+</html>

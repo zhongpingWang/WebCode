@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+    <body>
+        <canvas id="canvas" style="border: 1px red solid;"></canvas>
+        <script type="text/javascript">
+            window.onload = function () {
+                var canvas = document.getElementById('canvas');
+                var context = canvas.getContext('2d');
+                context.translate(50, 50);
+                context.save();              //坐标原点移到画布中心，并保存这个状态
+                context.rotate(Math.PI / 2);    //旋转90度
+                context.beginPath();
+                context.moveTo(0, -50);
+                context.lineTo(-50, 0);
+                context.moveTo(0, -50);
+                context.lineTo(50, 0);
+                context.moveTo(0, -50);
+                context.lineTo(0, 50);
+                context.closePath();          //画一个向右的箭头
+                context.restore();
+                context.fillRect(40, 40, 10, 10);  //画一点，restore后点在右下角，没有restore刚点在左下角，如图
+                context.stroke();
+            }
+        </script>
+    </body>
+</html>

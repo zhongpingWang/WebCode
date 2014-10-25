@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        var viewModel = {
+            shouldShowMessage: ko.observable(true), // Message initially visible
+              myValues: ko.observableArray([]) ,// Initially empty, so message hidden
+              details: ko.observable() 
+        };
+          viewModel.myValues.push("some value"); // Now visible
+          var nameArray = { name: "tome", age: 12 };
+         // viewModel.details(nameArray);
+         viewModel.details("<em>For further details, view the report <a href='report.html'>here</a>.</em>");
+        $(function () {
+            ko.applyBindings(viewModel);
+        });
+
+    </script>
+</head>
+    <body>
+        
+        <div data-bind="html: details"></div> 
+        <br/>
+
+        <div data-bind="visible: shouldShowMessage">
+            You will see this message only when "shouldShowMessage" holds a true value.
+        </div>
+
+        <div data-bind="visible: myValues().length > 0">
+            You will see this message only when 'myValues' has at least one member.
+        </div>
+    </body>
+</html>

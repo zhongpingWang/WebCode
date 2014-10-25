@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+      <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="../koJs/knockout-2.3.0.js" type="text/javascript"></script>
+</head>
+<body>
+    
+      <select data-bind="options: availableMeals, optionsText: 'mealName', value: selectedMeal, event: {change: onChange}">
+</select>
+    <script type="text/javascript">
+      
+
+function Meal(name, price){
+    var self = this;
+
+    self.mealName = name;
+    self.price =  price;    
+}
+
+function ReservationsViewModel() {
+    var self = this;
+    self.availableMeals = ko.observableArray(
+        [new Meal("Standard (sandwich)", 0),
+         new Meal("Premium (lobster)", 34.95),
+         new Meal("Ultimate (whole zebra)", 290)]);
+
+
+    self.selectedMeal = ko.observable(self.availableMeals()[0]);
+
+    self.onChange = function() {
+        alert("Hello");
+    };
+}
+
+ko.applyBindings(new ReservationsViewModel());
+
+    </script>
+
+
+</body>
+</html>

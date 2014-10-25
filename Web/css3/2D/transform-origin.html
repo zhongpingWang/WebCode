@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <pre>
+
+        改变元素基点transform-origin
+
+            前面我们多次提到transform-origin这个东东，他的主要作用就是让我们在进行transform动作之前可以改变元素的基点位置，因为我们元素默认基点就是其中心位置，换句话说我们没有使用transform-origin改变元素基点位置的情况下，transform进行的rotate,translate,scale,skew,matrix等操作都是以元素自己中心位置进行变化的。但有时候我们需要在不同的位置对元素进行这些操作，那么我们就可以使用transform-origin来对元素进行基点位置改变，使元素基点不在是中心位置，以达到你需要的基点位置。下面我们主要来看看其使用规则：
+
+            transform-origin(X,Y):用来设置元素的运动的基点（参照点）。默认点是元素的中心点。其中X和Y的值可以是百分值,em,px，其中X也可以是字符参数值left,center,right；Y和X一样除了百分值外还可以设置字符值top,center,bottom，这个看上去有点像我们background-position设置一样；下面我列出他们相对应的写法：
+
+            1、top left | left top 等价于 0 0 | 0% 0%
+
+            2、top | top center | center top 等价于 50% 0
+
+            3、right top | top right 等价于 100% 0
+
+            4、left | left center | center left 等价于 0 50% | 0% 50%
+
+            5、center | center center 等价于 50% 50%（默认值）
+
+            6、right | right center | center right 等价于 100% 50%
+
+            7、bottom left | left bottom 等价于 0 100% | 0% 100%
+
+            8、bottom | bottom center | center bottom 等价于 50% 100%
+
+            9、bottom right | right bottom 等价于 100% 100%
+    </pre>
+</body>
+</html>

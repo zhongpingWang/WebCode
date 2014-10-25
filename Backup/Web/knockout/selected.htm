@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../jquery/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="knockout-2.3.0.js" type="text/javascript"></script>
+</head>
+<body>
+    <p>
+        Your country:
+        <select data-bind="options: availableCountries, optionsText: 'countryName', value: selectedCountry, optionsCaption: 'Choose...'">
+        </select>
+    </p>
+    <div data-bind="visible: selectedCountry">
+        <!-- Appears when you select something -->
+        You have chosen a country with population <span data-bind="text: selectedCountry() ? selectedCountry().countryPopulation : 'unknown'">
+                                                  </span>.
+    </div>
+    
+    
+    <select size=3 data-bind="
+    options: myItems,
+    optionsText: 'name',
+    optionsValue: 'id',
+    optionsAfterRender: setOptionDisable">
+</select>
+    <script type="text/javascript">
+        // Constructor for an object with two properties
+        var Country = function (name, population) {
+            this.countryName = name;
+            this.countryPopulation = population;
+        };
+
+        var viewModel = {
+            availableCountries: ko.observableArray([
+            new Country("UK", 65000000),
+            new Country("USA", 320000000),
+            new Country("Sweden", 29000000)
+        ]),
+             myItems: [
+            { name: 'Item 1', id: 1, disable: ko.observable(false)},
+            { name: 'Item 3', id: 3, disable: ko.observable(true)},
+            { name: 'Item 4', id: 4, disable: ko.observable(false)}
+        ],
+        setOptionDisable: function(option, item) {
+            ko.applyBindingsToNode(option, {disable: item.disable}, item);
+        },
+            selectedCountry: ko.observable() // Nothing selected by default
+        };
+        ko.applyBindings(viewModel);
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <pre>
+                浏览器支持
+                Internet Explorer 9、Firefox、Opera、Chrome 以及 Safari 支持 textAlign 属性。
+                注释：Internet Explorer 8 以及更早的版本不支持 &lt;canvas> 元素。
+                定义和用法
+                textAlign 属性根据锚点，设置或返回文本内容的当前对齐方式。
+                通常，文本会从指定位置开始，不过，如果您设置为 textAlign="right" 并将文本放置到位置 150，那么会在位置 150 结束。
+                提示：使用 fillText() 或 strokeText() 方法在实际地在画布上绘制并定位文本。
+                默认值：	start
+                JavaScript 语法：	context.textAlign="center|end|left|right|start";
+                属性值
+                值	描述
+                start	默认。文本在指定的位置开始。
+                end	文本在指定的位置结束。
+                center	文本的中心被放置在指定的位置。
+                left	文本左对齐。
+                right	文本右对齐。
+
+</pre>
+
+<canvas id="myCanvas" width="300" height="200" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+
+    // Create a red line in position 150
+    ctx.strokeStyle = "blue";
+    ctx.moveTo(150, 20);
+    ctx.lineTo(150, 170);
+    ctx.stroke();
+
+    ctx.font = "15px Arial";
+
+    // Show the different textAlign values
+    ctx.textAlign = "start";
+    ctx.fillText("textAlign=start", 150, 60);
+    ctx.textAlign = "end";
+    ctx.fillText("textAlign=end", 150, 80);
+    ctx.textAlign = "left";
+    ctx.fillText("textAlign=left", 150, 100);
+    ctx.textAlign = "center";
+    ctx.fillText("textAlign=center", 150, 120);
+    ctx.textAlign = "right";
+    ctx.fillText("textAlign=right", 150, 140);
+
+</script>
+
+</body>
+</html>
