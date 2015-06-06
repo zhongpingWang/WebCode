@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="../Scripts/jquery-1.8.2.js"></script>
+</head>
+<body>
+    <table border="1">
+        <tr><td>TD #0</td><td>TD #1</td><td>TD #2</td></tr>
+        <tr><td>TD #3</td><td>TD #4</td><td>TD #5</td></tr>
+        <tr><td>TD #6</td><td>TD #7</td><td>TD #8</td></tr>
+    </table>
+    <ul>
+        <li>list item 1</li>
+        <li>list item 2</li>
+        <li>list item 3</li>
+        <li>list item 4</li>
+        <li>list item 5</li>
+    </ul>
+
+    <input type="text" />
+    <button id="click2">dd</button>
+    <script type="text/javascript">
+
+        $("td:eq(2)").css("color", "red")
+
+
+        $('li').eq(2).css('background-color', 'red');
+        $('li').eq(-2).css('background-color', 'red');
+
+        $("#click2").click(function () {
+            $("input").focus();
+        });
+         
+     
+        var a = function () { 
+
+            setTimeout(function () {
+                console.log(new Date().getSeconds());
+                console.log(1); 
+            },2000);
+        }
+        var b = function () { 
+            setTimeout(function () {
+                console.log(new Date().getSeconds());
+                console.log(2); 
+            }, 4000);
+        }
+
+        //$.when(a(), b()).done(function () {
+        //    console.log(new Date().getSeconds());
+        //    console.log(3);
+
+        //});
+
+
+       // var dtd = $.Deferred(); // 新建一个deferred对象
+        var wait = function () {
+            var dtd = $.Deferred(); //在函数内部，新建一个Deferred对象
+            var tasks = function () {
+                alert("执行完毕1！");
+                dtd.resolve(); // 改变deferred对象的执行状态
+            };
+            setTimeout(tasks, 5000);
+            return dtd;
+        };
+
+        var wait2 = function () {
+            var dtd = $.Deferred(); //在函数内部，新建一个Deferred对象
+            var tasks = function () {
+                alert("执行完毕2！");
+                dtd.resolve(); // 改变deferred对象的执行状态
+            };
+            setTimeout(tasks, 5000);
+            return dtd;
+        };
+
+        $.when(wait(),wait2())
+　　.done(function () { alert("哈哈，成功了！"); })
+　　.fail(function () { alert("出错啦！"); });
+        
+    </script>
+</body>
+</html>

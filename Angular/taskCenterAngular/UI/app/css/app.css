@@ -1,0 +1,57 @@
+.ThemeColor3 {color:#06c!important;}
+.Clear {clear: both;visibility: hidden;border-top: 0;margin-top: -1px!important;}
+#TopBarContainer {left: 0;top: 0;width: 100%;position: fixed; z-index:1000;}
+#TopBar {z-index: 1000;border-bottom: 2px solid #fff;width: 100%;border-color: #002463;background-color: #0066cc;}
+#TopBar .topBarContent {width: 1000px;margin: 0 auto;position: relative; height:43px;line-height:43px;}
+#taskBackHome {width: 108px;text-align: center;background-color: #004f9E;cursor: pointer;float:left;}
+#taskBackHome .text {color:#fff; text-decoration:none;}
+#menuDown {width: 36px;float: left;line-height: 43px;height: 43px;background-color: #002463;}
+#homeTriangle {width: 0;height: 0;line-height: 0;border-style: solid;border-color: #fff transparent transparent;border-width: 6px 5px;margin-top: 19px;margin-left: 13px;}
+#myMsgList,#userSetTip {width: 56px;cursor:pointer;text-align:center;float:right;color: #CCE0F5;font-size:22px;}
+
+#taskCenterBox { width:1000px;margin:0 auto; margin-top:45px;}
+#switchPage {height: 108px;line-height: 108px;}
+#switchPage .userDesc {float:left;}
+#switchPage .userImg {border-radius: 50%;width: 48px;height: 48px;border: 1px #ccc solid;}
+#switchPage .userName {font-size: 16px;margin-left: 15px;}
+#switchPage .switchIcon {float:right;}
+#switchPage .switchIcon a {text-decoration: none;color: #ccc;font-size: 38px;margin-right: 20px;margin-top: 43px;display: inline-block;vertical-align: top;}
+.content .head .text{ font-size:22px;}
+.content .moduleTab {border-top:2px #000 solid;border-bottom:1px #ccc solid;height:60px;margin-top:15px;}
+.content .switchView {float:right;}
+.content .switchView ul { border:1px #ccc solid;border-radius:3px;height:30px;padding:0;}
+.content .switchView ul li {float:left;font-size:22px;width: 30px;height: 30px;text-align: center;}
+.switchView .iconDisplySingle {height: 2px;display: block;margin-top: 8px;}
+.switchView .txtInlineSelect {color: #fff;background-color: #999;}
+
+
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}

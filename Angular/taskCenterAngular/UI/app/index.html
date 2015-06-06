@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACFklEQVQ4T2NkSNgvwMDKM52BgSGAgZGRA0gTBv///wAq2sDw+0smI0Pq6eVAjRGEdWFR8f//CpAB30E2R5sJMTz7+JvhzZc/DKzMjAyO6rwME/a8ZIixEGbw0uFjYGNhYvj//z/D/be/GNq2PWd4+/UvA1DgByND2pn/ILP3F6kxOAA1IQOdxqsMl+u0GN4BFd98+YOBl4OZQVeak2HGwdcMmcsegZWiGCAlwMpQtPoJQ7K1MEOgoSCD24RbDLsK1BhSFj1gmHv0LVjDqx49hrMPvzF4Tr6DaQA3OxODWfsNhp4QGYZiV3G4AbMOvWY4cvcLWMPEcFmGk/e+YjdAXpiNoWnrc4ZwE0EGD21+uAHowbfjykfsBqCHAcwLBSsfM6w59x5sztlqTYbzj3B4QYCLmcFz0m2Geh8phgx7UbgLkoFhsOTkO7AB91t1GC49+U5aGBDlhe25KgxG8lwMRaueMGQCbTdT5GbwmHibYS8wepefesdw5uFXsDl1QNcdBwYoRiwEGAgwLEtWZOBkgySYqQdeM1x7/oNhWpQcQ+D0uwwbLnwAG/C8S4/hwmMsYQCS5AJqFudjYfj0/S+DtTIPw/JUJYYvP/4yqNVdZRDgZGboCpZmCDUWZFh4/C1D4sKH0HQATcro/gQpdNXkZejZ9ZLh1qufDGpi7AwzYuQZHr/7xVC94SnDkw+/oUmZ4sxEYXYGAF6hAGSfqxOhAAAAAElFTkSuQmCC">
+    <title>My AngularJS App To TaskCenter</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="base.css" rel="stylesheet" />
+    <link href="css/font-awesome-ie7.css" rel="stylesheet" />
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body ng-controller="taskCenterController">
+    <div id="pageBox">
+        <div id="TopBarContainer">
+            <div id="TopBar">
+                <div class="topBarContent">
+                    <div id="taskBackHome">
+                        <a href="javascript:void(0);" class="text" title="返回动态更新">
+                            返回动态更新
+                        </a>
+                    </div>
+                    <div id="menuDown">
+                        <div id="homeTriangle"></div>
+                    </div>
+
+                    <div id="userSetTip">
+                        <span class="icon-charger"></span>
+                    </div>
+                    <div id="myMsgList">
+                        <span class="icon-inbox"></span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="taskCenterBox">
+            <div id="switchPage">
+                <div class="userDesc">
+                    <img class="userImg" src="img/userHead.png" />
+                    <span class="userName">zhongping.Wang的任务中心</span>
+                </div>
+                <div class="switchIcon">
+                    <a href="/apps/taskcenter/index" class="icon-task-foldernew taskMenuTaskFolder" title="项目列表"></a>
+                    <a href="/apps/taskcenter/center" class="taskMenuTaskList icon-task-listnew pointer aHover ThemeColor3" title="任务列表"></a>
+                    <span class="Line"></span>
+                    <a href="/apps/taskcenter/message/" class="icon-task-msgnew taskMenuTaskMsg pointer aHover" title="任务消息"></a>
+                </div>
+            </div>
+            <div class="Clear"></div>
+
+            <div class="content">
+                <div class="head">
+                    <span class="text">全部列表视图</span>
+                </div>
+                <div class="moduleTab">
+                    <div class="switchView">
+                        <ul class="txtInlineUl boderRadAll_3">
+                            <li class="txtInline  listMode" ng-class='{txtInlineSelect: TaskCenter.Settings.isTaskList}' title="列表视图">
+                                <a href="#/taskList" class="icon-task-show-list iconDisplySingle">
+                                </a>
+                            </li>
+                            <li class="txtInline SubMissionMode" title="子母任务视图" ng-class='{txtInlineSelect: TaskCenter.Settings.isTaskTree}'>
+                                <a href="#/taskTree" class="icon-task-show-tree iconDisplySingle">
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div>
+
+                    <div ng-view></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="js/app.js"></script>
+    <script src="partials/taskList/taskList.js"></script>
+    <script src="partials/taskTree/taskTree.js"></script>
+</body>
+</html>

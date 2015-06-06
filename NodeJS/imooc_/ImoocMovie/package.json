@@ -1,0 +1,28 @@
+{
+  "name": "Imooc",
+  "version": "0.0.0",
+  "description": "Imooc =====",
+  "main": "app.js",
+  "dependencies": {
+    "jade": "~1.4.2",
+    "body-parser": "~1.5.0",
+    "express": "~4.6.1",
+    "mongoose": "~3.8.13",
+    "moment": "~2.7.0",
+    "underscore": "^1.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/victorwoo/Imooc"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorwoo/Imooc/issues"
+  },
+  "homepage": "https://github.com/victorwoo/Imooc"
+}

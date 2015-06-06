@@ -1,0 +1,22 @@
+c:\users\user\documents\visual studio 2010\Projects\WebCode\Web\bin\Web.dll
+c:\users\user\documents\visual studio 2010\Projects\WebCode\Web\bin\Web.pdb
+c:\users\user\documents\visual studio 2010\Projects\WebCode\Web\bin\DAL.dll
+c:\users\user\documents\visual studio 2010\Projects\WebCode\Web\bin\DAL.pdb
+c:\users\user\documents\visual studio 2010\Projects\WebCode\Web\obj\Debug\ResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2010\Projects\WebCode\Web\obj\Debug\Web.dll
+c:\users\user\documents\visual studio 2010\Projects\WebCode\Web\obj\Debug\Web.pdb
+D:\instailSoft\百度云\Web之学习\WebCode\Web\bin\Web.dll
+D:\instailSoft\百度云\Web之学习\WebCode\Web\bin\Web.pdb
+D:\instailSoft\百度云\Web之学习\WebCode\Web\bin\DAL.dll
+D:\instailSoft\百度云\Web之学习\WebCode\Web\bin\DAL.pdb
+D:\instailSoft\百度云\Web之学习\WebCode\Web\obj\Debug\ResolveAssemblyReference.cache
+D:\instailSoft\百度云\Web之学习\WebCode\Web\obj\Debug\Web.dll
+D:\instailSoft\百度云\Web之学习\WebCode\Web\obj\Debug\Web.pdb
+F:\Project\WEB\WebCode\Web\bin\Web.dll.config
+F:\Project\WEB\WebCode\Web\bin\Web.dll
+F:\Project\WEB\WebCode\Web\bin\Web.pdb
+F:\Project\WEB\WebCode\Web\bin\DAL.dll
+F:\Project\WEB\WebCode\Web\bin\DAL.pdb
+F:\Project\WEB\WebCode\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
+F:\Project\WEB\WebCode\Web\obj\Debug\Web.dll
+F:\Project\WEB\WebCode\Web\obj\Debug\Web.pdb

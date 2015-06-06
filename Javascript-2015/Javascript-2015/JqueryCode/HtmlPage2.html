@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+    打印$$().say()
+    <div id="aaron"></div>
+    <script type="text/javascript">
+
+        var $$ = ajQuery = function (selector) {
+            return new ajQuery.fn.init(selector);
+        }
+
+        ajQuery.fn = ajQuery.prototype = {
+            name: 'aaron',
+            init: function (selector) {
+                this.selector = selector;
+                return this;
+            },
+            constructor: ajQuery
+        }
+
+        ajQuery.fn.init.prototype = ajQuery.fn
+
+        ajQuery.fn.say = function () {
+            document.getElementById("aaron").innerHTML = this.name;
+        }
+           
+        ajQuery.ss = function () {
+            console.log(122);
+
+        }
+
+        $$().say();
+
+
+
+        var zp = function () { }
+        zp.say = function () { console.log(this); }
+
+        function zpp() { }
+        zpp.say = function () { console.log(this); }
+
+    </script>
+</body>
+</html>

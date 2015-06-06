@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="jquery-1.11.2.js"></script>
+</head>
+<body>
+    <div id="aaron"></div>
+
+    <div id="aaron2"></div>
+
+    <div id="aaron3"></div>
+
+
+    <script type="text/javascript">
+
+        var $$ = ajQuery = function (selector) {
+            return new ajQuery.fn.init(selector);
+        }
+
+        ajQuery.fn = ajQuery.prototype = {
+            name: 'aaron',
+            init: function (selector) {
+                this.selector = selector;
+                return this;
+            },
+            constructor: ajQuery
+        }
+
+
+        ajQuery.fn.init.prototype = ajQuery.fn
+
+
+        ajQuery.extend = ajQuery.fn.extend = function () {
+            var options, src, copy,
+                target = arguments[0] || {},
+                i = 1,
+                length = arguments.length;
+
+            //只有一个参数，就是对jQuery自身的扩展处理
+            //extend,fn.extend
+            if (i === length) {
+                target = this; //调用的上下文对象jQuery/或者实例
+                i--;
+            }
+            for (; i < length; i++) {
+                //从i开始取参数,不为空开始遍历
+                if ((options = arguments[i]) != null) {
+                    for (name in options) {
+                        copy = options[name];
+                        //覆盖拷贝
+                        target[name] = copy;
+                    }
+                }
+            }
+            return target;
+        }
+
+        ajQuery.fn.extend({
+            setName: function (myName) {
+                this.myName = myName
+                return this;
+            },
+            getName: function () {
+                $("#aaron").html(this.myName)
+                return this;
+            }
+        })
+
+        ajQuery.extend({
+            setName2: function (myName) {
+                this.myName = myName
+                
+            },
+            getName2: function () {
+                $("#aaron").html(this.myName)
+                 
+            }
+        })
+
+
+        ajQuery.fn.hilight = function () {
+            // Our plugin implementation code goes here.    
+        };
+
+        $$().setName('慕课网-Aaron').getName();
+        
+        var a = function () {
+
+        };
+
+        a.prototype.show = function () {
+            console.log(this);
+        }
+
+        a.show2 = function () {
+
+            console.log(this);
+        }
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+Wed May 27 23:12:17.689 [initandlisten] MongoDB starting : pid=14172 port=27017 dbpath=data\db 64-bit host=zhongping
+Wed May 27 23:12:17.691 [initandlisten] db version v2.4.8
+Wed May 27 23:12:17.691 [initandlisten] git version: a350fc38922fbda2cec8d5dd842237b904eafc14
+Wed May 27 23:12:17.691 [initandlisten] build info: windows sys.getwindowsversion(major=6, minor=1, build=7601, platform=2, service_pack='Service Pack 1') BOOST_LIB_VERSION=1_49
+Wed May 27 23:12:17.691 [initandlisten] allocator: system
+Wed May 27 23:12:17.691 [initandlisten] options: { config: "conf/mongod.conf", dbpath: "data\db", journal: "true", logappend: "true", logpath: "logs\mongodb.log", port: 27017, quiet: "true" }
+Wed May 27 23:12:17.752 [initandlisten] journal dir=data\db\journal
+Wed May 27 23:12:17.762 [initandlisten] recover : no journal files present, no recovery needed
+Wed May 27 23:12:17.806 [FileAllocator] allocating new datafile data\db\local.ns, filling with zeroes...
+Wed May 27 23:12:17.806 [FileAllocator] creating directory data\db\_tmp
+Wed May 27 23:12:17.852 [FileAllocator] done allocating datafile data\db\local.ns, size: 16MB,  took 0.045 secs
+Wed May 27 23:12:17.852 [FileAllocator] allocating new datafile data\db\local.0, filling with zeroes...
+Wed May 27 23:12:18.059 [FileAllocator] done allocating datafile data\db\local.0, size: 64MB,  took 0.205 secs
+Wed May 27 23:12:18.060 [initandlisten] command local.$cmd command: { create: "startup_log", size: 10485760, capped: true } ntoreturn:1 keyUpdates:0  reslen:37 254ms
+Wed May 27 23:12:18.061 [websvr] admin web console waiting for connections on port 28017
+Wed May 27 23:12:18.061 [initandlisten] waiting for connections on port 27017
+Wed May 27 23:15:31.590 Ctrl-C signal
+Wed May 27 23:15:31.590 [consoleTerminate] got CTRL_C_EVENT, will terminate after current cmd ends
+Wed May 27 23:15:31.590 [consoleTerminate] now exiting
+Wed May 27 23:15:31.590 dbexit: 
+Wed May 27 23:15:31.590 [consoleTerminate] shutdown: going to close listening sockets...
+Wed May 27 23:15:31.590 [consoleTerminate] closing listening socket: 572
+Wed May 27 23:15:31.590 [consoleTerminate] closing listening socket: 592
+Wed May 27 23:15:31.590 [consoleTerminate] shutdown: going to flush diaglog...
+Wed May 27 23:15:31.590 [consoleTerminate] shutdown: going to close sockets...
+Wed May 27 23:15:31.590 [consoleTerminate] shutdown: waiting for fs preallocator...
+Wed May 27 23:15:31.590 [consoleTerminate] shutdown: lock for final commit...
+Wed May 27 23:15:31.590 [consoleTerminate] shutdown: final commit...
+Wed May 27 23:15:31.596 [consoleTerminate] shutdown: closing all files...
+Wed May 27 23:15:31.597 [consoleTerminate] closeAllFiles() finished
+Wed May 27 23:15:31.597 [consoleTerminate] journalCleanup...
+Wed May 27 23:15:31.597 [consoleTerminate] removeJournalFiles
+Wed May 27 23:15:31.597 [consoleTerminate] shutdown: removing fs lock...
+Wed May 27 23:15:31.597 dbexit: really exiting now
+
+
+***** SERVER RESTARTED *****
+
+
+Wed May 27 23:24:06.237 [initandlisten] MongoDB starting : pid=14564 port=27017 dbpath=data\db 64-bit host=zhongping
+Wed May 27 23:24:06.239 [initandlisten] db version v2.4.8
+Wed May 27 23:24:06.239 [initandlisten] git version: a350fc38922fbda2cec8d5dd842237b904eafc14
+Wed May 27 23:24:06.239 [initandlisten] build info: windows sys.getwindowsversion(major=6, minor=1, build=7601, platform=2, service_pack='Service Pack 1') BOOST_LIB_VERSION=1_49
+Wed May 27 23:24:06.239 [initandlisten] allocator: system
+Wed May 27 23:24:06.239 [initandlisten] options: { config: "conf/mongod.conf", dbpath: "data\db", journal: "true", logappend: "true", logpath: "logs\mongodb.log", port: 27017, quiet: "true" }
+Wed May 27 23:24:06.299 [initandlisten] journal dir=data\db\journal
+Wed May 27 23:24:06.299 [initandlisten] recover : no journal files present, no recovery needed
+Wed May 27 23:24:06.343 [initandlisten] waiting for connections on port 27017
+Wed May 27 23:24:06.343 [websvr] admin web console waiting for connections on port 28017
+Wed May 27 23:25:52.393 Ctrl-C signal
+Wed May 27 23:25:52.393 [consoleTerminate] got CTRL_C_EVENT, will terminate after current cmd ends
+Wed May 27 23:25:52.393 [consoleTerminate] now exiting
+Wed May 27 23:25:52.393 dbexit: 
+Wed May 27 23:25:52.393 [consoleTerminate] shutdown: going to close listening sockets...
+Wed May 27 23:25:52.393 [consoleTerminate] closing listening socket: 572
+Wed May 27 23:25:52.393 [consoleTerminate] closing listening socket: 592
+Wed May 27 23:25:52.393 [consoleTerminate] shutdown: going to flush diaglog...
+Wed May 27 23:25:52.393 [consoleTerminate] shutdown: going to close sockets...
+Wed May 27 23:25:52.393 [consoleTerminate] shutdown: waiting for fs preallocator...
+Wed May 27 23:25:52.393 [consoleTerminate] shutdown: lock for final commit...
+Wed May 27 23:25:52.393 [consoleTerminate] shutdown: final commit...
+
+
+***** SERVER RESTARTED *****
+
+
+Wed May 27 23:26:12.425 [initandlisten] MongoDB starting : pid=780 port=27017 dbpath=data\db 64-bit host=zhongping
+Wed May 27 23:26:12.426 [initandlisten] db version v2.4.8
+Wed May 27 23:26:12.426 [initandlisten] git version: a350fc38922fbda2cec8d5dd842237b904eafc14
+Wed May 27 23:26:12.426 [initandlisten] build info: windows sys.getwindowsversion(major=6, minor=1, build=7601, platform=2, service_pack='Service Pack 1') BOOST_LIB_VERSION=1_49
+Wed May 27 23:26:12.426 [initandlisten] allocator: system
+Wed May 27 23:26:12.426 [initandlisten] options: { config: "conf/mongod.conf", dbpath: "data\db", journal: "true", logappend: "true", logpath: "logs\mongodb.log", port: 27017, quiet: "true" }
+Wed May 27 23:26:12.483 [initandlisten] journal dir=data\db\journal
+Wed May 27 23:26:12.484 [initandlisten] recover begin
+Wed May 27 23:26:12.484 [initandlisten] info no lsn file in journal/ directory
+Wed May 27 23:26:12.484 [initandlisten] recover lsn: 0
+Wed May 27 23:26:12.484 [initandlisten] recover data\db\journal\j._0
+Wed May 27 23:26:12.520 [initandlisten] recover cleaning up
+Wed May 27 23:26:12.520 [initandlisten] removeJournalFiles
+Wed May 27 23:26:12.520 [initandlisten] recover done
+Wed May 27 23:26:12.564 [websvr] admin web console waiting for connections on port 28017
+Wed May 27 23:26:12.564 [initandlisten] waiting for connections on port 27017
+Wed May 27 23:29:17.366 Ctrl-C signal
+Wed May 27 23:29:17.366 [consoleTerminate] got CTRL_C_EVENT, will terminate after current cmd ends
+Wed May 27 23:29:17.366 [consoleTerminate] now exiting
+Wed May 27 23:29:17.366 dbexit: 
+Wed May 27 23:29:17.366 [consoleTerminate] shutdown: going to close listening sockets...
+Wed May 27 23:29:17.366 [consoleTerminate] closing listening socket: 580
+Wed May 27 23:29:17.366 [consoleTerminate] closing listening socket: 592
+Wed May 27 23:29:17.366 [consoleTerminate] shutdown: going to flush diaglog...
+Wed May 27 23:29:17.366 [consoleTerminate] shutdown: going to close sockets...
+Wed May 27 23:29:17.366 [consoleTerminate] shutdown: waiting for fs preallocator...
+Wed May 27 23:29:17.366 [consoleTerminate] shutdown: lock for final commit...
+Wed May 27 23:29:17.366 [consoleTerminate] shutdown: final commit...
+
+
+***** SERVER RESTARTED *****
+
+
+Wed May 27 23:32:18.861 [initandlisten] MongoDB starting : pid=2604 port=27017 dbpath=data\db 64-bit host=zhongping
+Wed May 27 23:32:18.862 [initandlisten] db version v2.4.8
+Wed May 27 23:32:18.862 [initandlisten] git version: a350fc38922fbda2cec8d5dd842237b904eafc14
+Wed May 27 23:32:18.862 [initandlisten] build info: windows sys.getwindowsversion(major=6, minor=1, build=7601, platform=2, service_pack='Service Pack 1') BOOST_LIB_VERSION=1_49
+Wed May 27 23:32:18.862 [initandlisten] allocator: system
+Wed May 27 23:32:18.862 [initandlisten] options: { config: "conf/mongod.conf", dbpath: "data\db", journal: "true", logappend: "true", logpath: "logs\mongodb.log", port: 27017, quiet: "true" }
+Wed May 27 23:32:18.922 [initandlisten] journal dir=data\db\journal
+Wed May 27 23:32:18.922 [initandlisten] recover begin
+Wed May 27 23:32:18.922 [initandlisten] recover lsn: 0
+Wed May 27 23:32:18.922 [initandlisten] recover data\db\journal\j._0
+Wed May 27 23:32:18.991 [initandlisten] recover cleaning up
+Wed May 27 23:32:18.991 [initandlisten] removeJournalFiles
+Wed May 27 23:32:18.992 [initandlisten] recover done
+Wed May 27 23:32:19.036 [initandlisten] waiting for connections on port 27017
+Wed May 27 23:32:19.036 [websvr] admin web console waiting for connections on port 28017
+Wed May 27 23:32:31.604 CTRL_CLOSE_EVENT signal
+Wed May 27 23:32:31.604 [consoleTerminate] got CTRL_CLOSE_EVENT, will terminate after current cmd ends
+Wed May 27 23:32:31.604 [consoleTerminate] now exiting
+Wed May 27 23:32:31.604 dbexit: 
+Wed May 27 23:32:31.605 [consoleTerminate] shutdown: going to close listening sockets...
+Wed May 27 23:32:31.605 [consoleTerminate] closing listening socket: 584
+Wed May 27 23:32:31.605 [consoleTerminate] closing listening socket: 588
+Wed May 27 23:32:31.605 [consoleTerminate] shutdown: going to flush diaglog...
+Wed May 27 23:32:31.605 [consoleTerminate] shutdown: going to close sockets...
+Wed May 27 23:32:31.605 [consoleTerminate] shutdown: waiting for fs preallocator...
+Wed May 27 23:32:31.605 [consoleTerminate] shutdown: lock for final commit...
+Wed May 27 23:32:31.605 [consoleTerminate] shutdown: final commit...
+Wed May 27 23:32:31.642 [consoleTerminate] shutdown: closing all files...
+Wed May 27 23:32:31.642 [consoleTerminate] closeAllFiles() finished
+Wed May 27 23:32:31.642 [consoleTerminate] journalCleanup...
+Wed May 27 23:32:31.643 [consoleTerminate] removeJournalFiles
+Wed May 27 23:32:31.644 [consoleTerminate] shutdown: removing fs lock...
+Wed May 27 23:32:31.644 dbexit: really exiting now

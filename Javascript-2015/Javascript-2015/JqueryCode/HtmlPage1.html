@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="jquery-1.11.2.js"></script>
+</head>
+<body>
+
+    <button id="one">第一个</button><br />
+    <button id="one2">第一个</button>
+    <input type="text" id="one" />
+    <script type="text/javascript">
+
+        //var
+        // version = "1.11.2",
+
+        // // Define a local copy of jQuery
+        // jQuery = function (selector, context) {
+        //     // The jQuery object is actually just the init constructor 'enhanced'
+        //     // Need init if jQuery is called (just allow error to be thrown if not included)
+        //     return new jQuery.fn.init(selector, context);
+        // };
+
+
+
+
+        //jQuery.fn = jQuery.prototype = {
+
+        //    init: function () {
+        //        //jQuery.fn.jQuery.init
+        //        console.log(this)
+        //    },
+
+        //    // The current version of jQuery being used
+        //    jquery: version,
+
+        //    constructor: jQuery,
+
+        //    // Start with an empty selector
+        //    selector: "",
+
+        //    // The default length of a jQuery object is 0
+        //    length: 0
+
+
+        //};
+        //jQuery.fn.say = function () {
+        //};
+        //jQuery.prototype.sya = function () { }
+
+
+
+        //var $$ = ajQuery = function (selector) {
+        //    //if (!(this instanceof ajQuery)) {
+        //    //    return new ajQuery(selector);
+        //    //}
+        //    //this.selector = selector;
+        //    //console.log(this);
+        //    //return this
+        //    var a = new $$.fn.init();
+        //    console.log(a);
+        //    return a;
+
+        //};
+        //$$.fn = $$.prototype = {
+        //    init: function () {
+        //        console.log(this);
+
+        //    }
+
+        //}
+
+
+        //var aQuery = function (selector, context) {
+        //    return new aQuery.prototype.init();
+        //}
+        //aQuery.fn = aQuery.prototype = {
+        //    name2: "34",
+        //    init: function () {
+        //        console.log(this);
+        //        return this;
+        //    },
+        //    name: function () { },
+        //    age: function () { }
+        //}
+
+
+
+        // aQuery.fn.init.prototype = aQuery.fn;
+
+        //function doWork(name) {
+        //    for (var i = 0; i < 1000; i++) {
+        //        $("body").append(name + i.toString() + "<br/>");
+        //        //console.log("运行：" + new Date().getSeconds());
+        //        console.log(name);
+        //    }
+        //}
+        //console.log("开始："+new Date().getSeconds());
+
+        //setTimeout(function () {
+        //    doWork("第一个计时器：");
+        //},0);
+        //setTimeout(function () {
+        //    doWork("第二个计时器：");
+        //}, 0);
+        //doWork("第3个计时器：");
+        //console.log("结束"+ new Date().getSeconds());
+
+
+        function doWork2(name) {
+            for (var i = 0; i < 100000; i++) {
+                console.log(name);
+            }
+
+        }
+
+        $("#one").click(function () {
+            $(this).animate({ "margin-left": "500px" }, 5000, function () {
+                console.log("完成");
+
+            });
+            // doWork2("第一个");
+        });
+
+
+
+        $("#one2").click(function () {
+            $(this).animate({ "margin-left": "500px" }, 5000, function () {
+                console.log("完成");
+
+            });
+        });
+
+
+        var rmsPrefix = /^-ms-/,
+        	rdashAlpha = /-([\da-z])/gi;
+
+        var fcamelCase = function (all, letter) {
+            return letter.toUpperCase();
+        };
+       
+        "item-sea-sya".replace(rmsPrefix, "ms-").replace(rdashAlpha, fcamelCase);
+
+    </script>
+</body>
+</html>
